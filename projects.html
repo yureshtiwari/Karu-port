@@ -6,9 +6,244 @@
   <title>Projects — Karina Tandan</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    /* ===== Projects page specific styles ===== */
+
+    .proj-hero{
+      position:relative;
+      text-align:center;
+      padding:20px 20px 30px;
+      overflow:hidden;
+    }
+
+    /* Floating decorative background shapes */
+    .float-shapes{
+      position:absolute;inset:0;pointer-events:none;z-index:0;
+    }
+    .float-shape{
+      position:absolute;border-radius:50%;
+      background:linear-gradient(135deg,rgba(14,165,233,0.18),rgba(236,72,153,0.15));
+      filter:blur(2px);
+      animation:floatY 8s ease-in-out infinite;
+      will-change:transform;
+    }
+    .float-shape.s1{width:115px;height:115px;top:10%;left:8%;animation-delay:0s}
+    .float-shape.s2{width:70px;height:70px;top:20%;right:10%;animation-delay:1.5s;
+      background:linear-gradient(135deg,rgba(245,158,11,0.22),rgba(6,182,212,0.18))}
+    .float-shape.s3{width:90px;height:90px;bottom:10%;left:15%;animation-delay:3s}
+    .float-shape.s4{width:55px;height:55px;bottom:20%;right:15%;animation-delay:2s;
+      background:linear-gradient(135deg,rgba(236,72,153,0.22),rgba(14,165,233,0.18))}
+
+    @keyframes floatY{
+      0%,100%{transform:translateY(0) rotate(0deg)}
+      50%{transform:translateY(-25px) rotate(8deg)}
+    }
+
+    .hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+
+    .proj-title{
+      font-size:clamp(32px,5vw,52px);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      letter-spacing:-0.5px;margin-bottom:12px;
+    }
+    .proj-sub{color:var(--color-text-body);font-size:16px;margin-bottom:0}
+
+    /* ===== Professional Filter Tabs ===== */
+    .filter-section{
+      position:relative;z-index:1;max-width:680px;margin:10px auto 40px;text-align:center;
+    }
+    .filter-label{font-size:12px;color:var(--color-text-body);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;opacity:0.8}
+    .filter-grid{
+      display:inline-flex;flex-wrap:wrap;justify-content:center;gap:8px;
+      background:rgba(255,255,255,0.7);padding:6px;border-radius:30px;
+      border:1px solid rgba(14,165,233,0.2);box-shadow:0 4px 15px rgba(15,23,42,0.04);
+    }
+    .filter-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 18px;border-radius:24px;font-size:13px;font-weight:600;
+      background:transparent;border:none;color:var(--color-text-body);
+      cursor:pointer;transition:all .28s cubic-bezier(.2,.9,.2,1);
+    }
+    .filter-pill svg{opacity:0.7;transition:opacity .2s ease}
+    .filter-count{
+      font-size:11px;padding:2px 6px;border-radius:10px;
+      background:rgba(14,165,233,0.1);color:var(--color-accent-dark);
+      transition:all .28s ease;
+    }
+    .filter-pill:hover{
+      color:var(--color-text-heading);background:rgba(255,255,255,0.8);
+    }
+    .filter-pill:hover svg, .filter-pill.active svg{opacity:1}
+    .filter-pill.active{
+      background:linear-gradient(135deg,#0EA5E9,#06B6D4);
+      color:#fff;box-shadow:0 6px 16px rgba(14,165,233,0.25);
+    }
+    .filter-pill.active .filter-count{
+      background:rgba(255,255,255,0.25);color:#fff;
+    }
+
+    /* ===== 3D Project Cards Grid ===== */
+    .projects-container{
+      display:grid;grid-template-columns:1fr;gap:40px;
+      max-width:860px;margin:0 auto;perspective:1200px;
+    }
+
+    .project-node{
+      transition:all .5s cubic-bezier(.2,.9,.2,1);
+    }
+    .project-node.hidden{
+      opacity:0.15;transform:scale(0.96);pointer-events:none;
+      max-height:0;overflow:hidden;margin:0;padding:0;
+    }
+
+    .project-card-3d{
+      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      border:1.5px solid rgba(14,165,233,0.18);
+      border-radius:24px;padding:40px;
+      box-shadow:0 14px 40px rgba(15,23,42,0.06);
+      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .4s ease,border-color .4s ease;
+      transform-style:preserve-3d;
+      position:relative;z-index:1;
+    }
+    .project-card-3d:hover{
+      box-shadow:0 28px 65px rgba(14,165,233,0.16);
+      border-color:rgba(14,165,233,0.35);
+      background:linear-gradient(135deg,#FFFFFF 0%,#E0F2FE 100%);
+    }
+
+    /* Card Header & Badges */
+    .proj-badge-wrap{
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:12px;margin-bottom:16px;
+    }
+    .proj-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;
+    }
+    .badge-dot{
+      width:8px;height:8px;border-radius:50%;
+      position:relative;
+    }
+    .badge-dot::after{
+      content:"";position:absolute;inset:-3px;border-radius:50%;
+      opacity:0.4;animation:pulse 2s infinite;
+    }
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.8);opacity:0}}
+
+    /* Theme specific badge colors */
+    .theme-blue .proj-badge{color:var(--color-accent-dark)}
+    .theme-blue .badge-dot, .theme-blue .badge-dot::after{background:var(--color-accent)}
+    
+    .theme-emerald .proj-badge{color:#059669}
+    .theme-emerald .badge-dot, .theme-emerald .badge-dot::after{background:#10B981}
+    
+    .theme-pink .proj-badge{color:#DB2777}
+    .theme-pink .badge-dot, .theme-pink .badge-dot::after{background:#EC4899}
+
+    .proj-name{
+      font-family:Fraunces,serif;font-size:32px;color:var(--color-text-heading);
+      margin:0 0 8px;letter-spacing:-0.5px;
+    }
+    .proj-type{
+      color:var(--color-secondary);font-size:15px;font-weight:600;margin-bottom:18px;
+    }
+    .proj-desc{
+      color:var(--color-text-body);font-size:15px;line-height:1.8;margin-bottom:24px;
+    }
+
+    /* Impact & Achievements Box */
+    .proj-impact-box{
+      padding:24px;border-radius:16px;margin:24px 0;
+      border-top:1px solid rgba(14,165,233,0.1);
+      border-right:1px solid rgba(14,165,233,0.1);
+      border-bottom:1px solid rgba(14,165,233,0.1);
+      transition:all .3s ease;
+    }
+    .theme-blue .proj-impact-box{
+      background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(6,182,212,0.03));
+      border-left:4px solid var(--color-accent);
+    }
+    .theme-emerald .proj-impact-box{
+      background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(6,182,212,0.03));
+      border-left:4px solid #10B981;
+    }
+    .theme-pink .proj-impact-box{
+      background:linear-gradient(135deg,rgba(236,72,153,0.06),rgba(14,165,233,0.03));
+      border-left:4px solid #EC4899;
+    }
+
+    .project-card-3d:hover .proj-impact-box{
+      background:linear-gradient(135deg,rgba(14,165,233,0.09),rgba(236,72,153,0.05));
+    }
+
+    .impact-title{
+      font-weight:700;color:var(--color-text-heading);margin:0 0 14px;
+      font-size:13px;text-transform:uppercase;letter-spacing:0.6px;
+      display:flex;align-items:center;gap:8px;
+    }
+    .impact-list{
+      margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;
+    }
+    .impact-list li{
+      position:relative;padding-left:24px;color:var(--color-text-body);
+      font-size:14px;line-height:1.7;
+    }
+    .impact-list li::before{
+      content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230EA5E9' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size:contain;background-repeat:no-repeat;
+    }
+    .theme-emerald .impact-list li::before{
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    }
+    .theme-pink .impact-list li::before{
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EC4899' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    }
+
+    /* Interactive Tech Stack Tags */
+    .stack-wrap{
+      display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:24px;
+      padding-top:18px;border-top:1px solid rgba(14,165,233,0.12);
+    }
+    .stack-label{font-size:13px;font-weight:700;color:var(--color-text-heading);margin-right:4px}
+    .stack-tag{
+      font-size:12px;font-weight:600;color:var(--color-text-body);
+      background:rgba(255,255,255,0.8);padding:5px 12px;border-radius:14px;
+      border:1px solid rgba(14,165,233,0.2);transition:all .2s ease;
+    }
+    .project-card-3d:hover .stack-tag{
+      background:#fff;color:var(--color-accent-dark);
+      border-color:var(--color-accent);transform:translateY(-2px);
+      box-shadow:0 4px 10px rgba(14,165,233,0.1);
+    }
+
+    /* CTA */
+    .proj-cta{
+      text-align:center;margin-top:70px;margin-bottom:40px;padding:40px 20px;
+      background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(236,72,153,0.06));
+      border-radius:20px;border:1.5px solid rgba(14,165,233,0.15);
+      max-width:760px;margin-left:auto;margin-right:auto;
+    }
+    .proj-cta p{color:var(--color-text-heading);font-size:20px;margin-bottom:18px;font-weight:700;font-family:Fraunces,serif}
+
+    /* Responsive */
+    @media (max-width:768px){
+      .project-card-3d{padding:28px 20px}
+      .proj-name{font-size:26px}
+      .filter-grid{border-radius:20px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .float-shape{animation:none}
+      .project-card-3d,.project-node{transition:none}
+    }
+  </style>
 </head>
 <body class="page-projects">
   <a href="#main" class="skip-link">Skip to content</a>
+
   <header class="site-header">
     <nav class="capsule-nav" aria-label="Primary">
       <div class="nav-inner">
@@ -22,83 +257,166 @@
   </header>
 
   <main id="main" class="container">
-    <div class="section-header" style="margin-top:60px;margin-bottom:60px">
-      <h2>My Projects</h2>
-      <p>Selected works showcasing design and development expertise</p>
-    </div>
 
-    <section class="summary-grid" style="display:grid;grid-template-columns:1fr;gap:40px">
-      <!-- Project 1 -->
-      <div class="summary-card" data-animate="entry-scale" style="background:linear-gradient(135deg,#fff 0%,rgba(217,164,65,0.04) 100%)">
-        <div class="summary-content">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-            <div style="width:12px;height:12px;background:linear-gradient(135deg,var(--color-accent-light),var(--color-accent));border-radius:50%"></div>
-            <span style="font-size:13px;font-weight:600;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.8px">Featured Project</span>
-          </div>
-          <h3 style="font-size:28px;margin-bottom:12px">Dipin Donuts</h3>
-          <p style="color:var(--color-secondary);font-size:14px;margin-bottom:16px">E-commerce Storefront</p>
-          <p style="margin-bottom:16px;line-height:1.8">Designed and implemented a fully functional e-commerce storefront for Dipin Donuts, a specialty bakery. The project focused on creating conversion-friendly user flows, ensuring accessibility compliance, and integrating a lightweight CMS that allows the client to independently manage product listings, promotions, and inventory.</p>
-          <div style="background:rgba(217,164,65,0.08);padding:16px;border-radius:8px;margin:24px 0">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 12px;font-size:14px">Key Achievements</p>
-            <ul style="margin:0;padding-left:20px;color:var(--color-text-body);font-size:14px">
-              <li style="margin-bottom:6px">Increased conversion rate by 34% through optimized checkout flow</li>
-              <li style="margin-bottom:6px">Achieved WCAG 2.1 AA accessibility standards</li>
-              <li>Reduced page load time by 45% with optimized assets</li>
-            </ul>
-          </div>
-          <p><strong>Technologies:</strong> React, Node.js, MongoDB, Stripe API</p>
-        </div>
+    <!-- ===== Hero ===== -->
+    <section class="proj-hero">
+      <div class="float-shapes" aria-hidden="true">
+        <span class="float-shape s1"></span>
+        <span class="float-shape s2"></span>
+        <span class="float-shape s3"></span>
+        <span class="float-shape s4"></span>
       </div>
 
-      <!-- Project 2 -->
-      <div class="summary-card" data-animate="entry-scale">
-        <div class="summary-content">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-            <div style="width:12px;height:12px;background:linear-gradient(135deg,#B08968,#A07559);border-radius:50%"></div>
-            <span style="font-size:13px;font-weight:600;color:var(--color-secondary);text-transform:uppercase;letter-spacing:0.8px">Healthcare Tech</span>
-          </div>
-          <h3 style="font-size:28px;margin-bottom:12px">Mediclick</h3>
-          <p style="color:var(--color-secondary);font-size:14px;margin-bottom:16px">Appointment Booking Platform</p>
-          <p style="margin-bottom:16px;line-height:1.8">Built a streamlined healthcare appointment scheduling platform that simplifies the booking process for patients and reduces administrative overhead for medical practices. The intuitive interface guides users through finding specialists and booking appointments with minimal friction.</p>
-          <div style="background:rgba(176,137,104,0.08);padding:16px;border-radius:8px;margin:24px 0">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 12px;font-size:14px">Impact Metrics</p>
-            <ul style="margin:0;padding-left:20px;color:var(--color-text-body);font-size:14px">
-              <li style="margin-bottom:6px">Reduced booking time from 15 min to 3 min per appointment</li>
-              <li style="margin-bottom:6px">98% uptime with automated reminder system</li>
-              <li>Served 50,000+ patients in first year</li>
-            </ul>
-          </div>
-          <p><strong>Technologies:</strong> React, TypeScript, Firebase, Twilio</p>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="summary-card" data-animate="entry-scale">
-        <div class="summary-content">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-            <div style="width:12px;height:12px;background:linear-gradient(135deg,#D9A441,#C08E2A);border-radius:50%"></div>
-            <span style="font-size:13px;font-weight:600;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.8px">Fashion Retail</span>
-          </div>
-          <h3 style="font-size:28px;margin-bottom:12px">Ocean Fashion</h3>
-          <p style="color:var(--color-secondary);font-size:14px;margin-bottom:16px">Modern E-commerce Platform</p>
-          <p style="margin-bottom:16px;line-height:1.8">Developed a contemporary fashion e-commerce platform featuring rich product experiences, advanced filtering, and a seamless checkout process. The platform emphasizes visual storytelling with high-quality product photography and curated collections.</p>
-          <div style="background:rgba(217,164,65,0.08);padding:16px;border-radius:8px;margin:24px 0">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 12px;font-size:14px">Performance</p>
-            <ul style="margin:0;padding-left:20px;color:var(--color-text-body);font-size:14px">
-              <li style="margin-bottom:6px">Mobile-first responsive design with 99.2% cross-browser compatibility</li>
-              <li style="margin-bottom:6px">Average session duration increased by 280%</li>
-              <li>Smart recommendation engine increased AOV by 22%</li>
-            </ul>
-          </div>
-          <p><strong>Technologies:</strong> Next.js, GraphQL, Shopify API, TailwindCSS</p>
-        </div>
+      <div class="hero-inner" data-animate="entry-scale">
+        <h1 class="proj-title">My Projects</h1>
+        <p class="proj-sub">Selected works showcasing design and development expertise</p>
       </div>
     </section>
 
-    <div style="text-align:center;margin-top:60px;margin-bottom:40px">
-      <p style="color:var(--color-secondary);margin-bottom:16px">Interested in collaborating?</p>
+    <!-- ===== Professional Filter Tabs ===== -->
+    <section class="filter-section" data-animate="entry-scale">
+      <p class="filter-label">Filter by Category</p>
+      <div class="filter-grid" role="group" aria-label="Filter projects by category">
+        <button type="button" class="filter-pill active" data-filter="all">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>All Projects</span>
+          <span class="filter-count">3</span>
+        </button>
+        <button type="button" class="filter-pill" data-filter="e-commerce">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span>E-Commerce</span>
+          <span class="filter-count">2</span>
+        </button>
+        <button type="button" class="filter-pill" data-filter="healthcare">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span>Healthcare</span>
+          <span class="filter-count">1</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== 3D Project Cards Grid ===== -->
+    <section class="projects-container" aria-label="Featured Projects Showcase">
+
+      <!-- Project 1: Dipin Donuts -->
+      <article class="project-node" data-category="e-commerce" data-animate="entry-scale">
+        <div class="project-card-3d theme-blue">
+          <div class="proj-badge-wrap">
+            <span class="proj-badge">
+              <span class="badge-dot"></span>
+              Featured Project
+            </span>
+            <span style="font-size:12px;font-weight:600;color:var(--color-text-body);opacity:0.7">E-Commerce</span>
+          </div>
+
+          <h3 class="proj-name">Dipin Donuts</h3>
+          <p class="proj-type">E-commerce Storefront</p>
+          <p class="proj-desc">Designed and implemented a fully functional e-commerce storefront for Dipin Donuts, a specialty bakery. The project focused on creating conversion-friendly user flows, ensuring accessibility compliance, and integrating a lightweight CMS that allows the client to independently manage product listings, promotions, and inventory.</p>
+
+          <div class="proj-impact-box">
+            <p class="impact-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Key Achievements
+            </p>
+            <ul class="impact-list">
+              <li>Increased conversion rate by 34% through optimized checkout flow</li>
+              <li>Achieved WCAG 2.1 AA accessibility standards</li>
+              <li>Reduced page load time by 45% with optimized assets</li>
+            </ul>
+          </div>
+
+          <div class="stack-wrap" aria-label="Technologies used">
+            <span class="stack-label">Technologies:</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">MongoDB</span>
+            <span class="stack-tag">Stripe API</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Mediclick -->
+      <article class="project-node" data-category="healthcare" data-animate="entry-scale">
+        <div class="project-card-3d theme-emerald">
+          <div class="proj-badge-wrap">
+            <span class="proj-badge">
+              <span class="badge-dot"></span>
+              Healthcare Tech
+            </span>
+            <span style="font-size:12px;font-weight:600;color:var(--color-text-body);opacity:0.7">Healthcare</span>
+          </div>
+
+          <h3 class="proj-name">Mediclick</h3>
+          <p class="proj-type">Appointment Booking Platform</p>
+          <p class="proj-desc">Built a streamlined healthcare appointment scheduling platform that simplifies the booking process for patients and reduces administrative overhead for medical practices. The intuitive interface guides users through finding specialists and booking appointments with minimal friction.</p>
+
+          <div class="proj-impact-box">
+            <p class="impact-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Impact Metrics
+            </p>
+            <ul class="impact-list">
+              <li>Reduced booking time from 15 min to 3 min per appointment</li>
+              <li>98% uptime with automated reminder system</li>
+              <li>Served 50,000+ patients in first year</li>
+            </ul>
+          </div>
+
+          <div class="stack-wrap" aria-label="Technologies used">
+            <span class="stack-label">Technologies:</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">Firebase</span>
+            <span class="stack-tag">Twilio</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: Ocean Fashion -->
+      <article class="project-node" data-category="e-commerce" data-animate="entry-scale">
+        <div class="project-card-3d theme-pink">
+          <div class="proj-badge-wrap">
+            <span class="proj-badge">
+              <span class="badge-dot"></span>
+              Fashion Retail
+            </span>
+            <span style="font-size:12px;font-weight:600;color:var(--color-text-body);opacity:0.7">E-Commerce</span>
+          </div>
+
+          <h3 class="proj-name">Ocean Fashion</h3>
+          <p class="proj-type">Modern E-commerce Platform</p>
+          <p class="proj-desc">Developed a contemporary fashion e-commerce platform featuring rich product experiences, advanced filtering, and a seamless checkout process. The platform emphasizes visual storytelling with high-quality product photography and curated collections.</p>
+
+          <div class="proj-impact-box">
+            <p class="impact-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Performance
+            </p>
+            <ul class="impact-list">
+              <li>Mobile-first responsive design with 99.2% cross-browser compatibility</li>
+              <li>Average session duration increased by 280%</li>
+              <li>Smart recommendation engine increased AOV by 22%</li>
+            </ul>
+          </div>
+
+          <div class="stack-wrap" aria-label="Technologies used">
+            <span class="stack-label">Technologies:</span>
+            <span class="stack-tag">Next.js</span>
+            <span class="stack-tag">GraphQL</span>
+            <span class="stack-tag">Shopify API</span>
+            <span class="stack-tag">TailwindCSS</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="proj-cta" data-animate="entry-scale">
+      <p>Interested in collaborating?</p>
       <a class="btn" href="contact.html">Let's Create Something Great</a>
-    </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -109,5 +427,60 @@
   </footer>
 
   <script src="scripts/main.js"></script>
+
+  <script>
+    // ===== Projects Page Interactions =====
+    (function(){
+      // 1. Category Filtering Logic
+      var pills = document.querySelectorAll('.filter-pill');
+      var nodes = document.querySelectorAll('.project-node');
+
+      pills.forEach(function(pill){
+        pill.addEventListener('click', function(){
+          pills.forEach(function(p){ p.classList.remove('active'); });
+          pill.classList.add('active');
+
+          var target = pill.getAttribute('data-filter');
+
+          nodes.forEach(function(node){
+            var category = node.getAttribute('data-category');
+            if(target === 'all' || category === target){
+              node.classList.remove('hidden');
+            } else {
+              node.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 2. Subtle Parallax on Floating Background Shapes
+      var shapes = document.querySelectorAll('.float-shape');
+      if(shapes.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        window.addEventListener('mousemove', function(e){
+          var x = (e.clientX / window.innerWidth - 0.5) * 20;
+          var y = (e.clientY / window.innerHeight - 0.5) * 20;
+          shapes.forEach(function(s, i){
+            var factor = (i + 1) * 0.6;
+            s.style.transform = 'translate(' + (x * factor) + 'px,' + (y * factor) + 'px)';
+          });
+        });
+      }
+
+      // 3. 3D Tilt Effect on Project Cards
+      document.querySelectorAll('.project-card-3d').forEach(function(card){
+        if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+          card.addEventListener('mousemove', function(e){
+            var r = card.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = 'translateY(-6px) rotateX(' + (-py * 5) + 'deg) rotateY(' + (px * 5) + 'deg)';
+          });
+          card.addEventListener('mouseleave', function(){
+            card.style.transform = '';
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

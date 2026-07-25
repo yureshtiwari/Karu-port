@@ -6,9 +6,198 @@
   <title>Contact — Karina Tandan</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    /* ===== Contact page specific styles ===== */
+
+    .contact-hero{
+      position:relative;
+      text-align:center;
+      padding:20px 20px 30px;
+      overflow:hidden;
+    }
+
+    /* Floating decorative background shapes (matching About page) */
+    .float-shapes{
+      position:absolute;inset:0;pointer-events:none;z-index:0;
+    }
+    .float-shape{
+      position:absolute;border-radius:50%;
+      background:linear-gradient(135deg,rgba(14,165,233,0.18),rgba(236,72,153,0.15));
+      filter:blur(2px);
+      animation:floatY 8s ease-in-out infinite;
+      will-change:transform;
+    }
+    .float-shape.s1{width:110px;height:110px;top:15%;left:10%;animation-delay:0s}
+    .float-shape.s2{width:65px;height:65px;top:25%;right:12%;animation-delay:1.5s;
+      background:linear-gradient(135deg,rgba(245,158,11,0.22),rgba(6,182,212,0.18))}
+    .float-shape.s3{width:85px;height:85px;bottom:10%;left:18%;animation-delay:3s}
+    .float-shape.s4{width:50px;height:50px;bottom:20%;right:15%;animation-delay:2s;
+      background:linear-gradient(135deg,rgba(236,72,153,0.22),rgba(14,165,233,0.18))}
+
+    @keyframes floatY{
+      0%,100%{transform:translateY(0) rotate(0deg)}
+      50%{transform:translateY(-25px) rotate(8deg)}
+    }
+
+    .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+
+    /* Status Badge */
+    .status-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 16px;border-radius:30px;
+      background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(6,182,212,0.1));
+      border:1px solid rgba(14,165,233,0.25);
+      color:var(--color-accent-dark);font-size:13px;font-weight:600;
+      margin-bottom:20px;box-shadow:0 8px 20px rgba(14,165,233,0.1);
+    }
+    .status-dot{
+      width:8px;height:8px;border-radius:50%;background:#10B981;
+      position:relative;
+    }
+    .status-dot::after{
+      content:"";position:absolute;inset:-4px;border-radius:50%;
+      background:#10B981;opacity:0.4;
+      animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite;
+    }
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.8);opacity:0}}
+
+    .contact-title{
+      font-size:clamp(32px,5vw,52px);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      letter-spacing:-0.5px;margin-bottom:12px;
+    }
+    .contact-sub{color:var(--color-text-heading);font-weight:600;font-size:18px;margin-bottom:8px}
+
+    /* ===== Interactive Icebreaker Pills ===== */
+    .icebreaker-section{
+      position:relative;z-index:1;max-width:680px;margin:10px auto 32px;text-align:center;
+    }
+    .icebreaker-label{font-size:13px;color:var(--color-text-body);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
+    .icebreaker-grid{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+    }
+    .icebreaker-pill{
+      padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;
+      background:#fff;border:1.5px solid rgba(14,165,233,0.2);color:var(--color-text-body);
+      cursor:pointer;transition:all .28s cubic-bezier(.2,.9,.2,1);
+      box-shadow:0 4px 12px rgba(15,23,42,0.04);
+    }
+    .icebreaker-pill:hover, .icebreaker-pill.active{
+      background:linear-gradient(135deg,#0EA5E9,#06B6D4);
+      color:#fff;border-color:transparent;
+      transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,165,233,0.25);
+    }
+
+    /* ===== Main 3D Contact Card ===== */
+    .contact-hub-wrap{
+      position:relative;z-index:1;max-width:720px;margin:0 auto;
+      perspective:1200px;
+    }
+    .contact-3d-card{
+      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      border:1.5px solid rgba(14,165,233,0.2);
+      border-radius:20px;padding:40px;
+      box-shadow:0 18px 50px rgba(15,23,42,0.08);
+      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .4s ease;
+      transform-style:preserve-3d;
+    }
+    .contact-3d-card:hover{
+      box-shadow:0 28px 65px rgba(14,165,233,0.18);
+      border-color:rgba(14,165,233,0.35);
+    }
+
+    .info-body{color:var(--color-text-body);font-size:15px;line-height:1.8;margin-bottom:28px;text-align:center}
+
+    /* Quick Response Box */
+    .quick-response{
+      background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(236,72,153,0.05));
+      padding:24px;border-radius:14px;margin-bottom:32px;
+      border-left:4px solid var(--color-accent);
+      text-align:left;
+    }
+    .quick-response h4{
+      font-family:Inter,sans-serif;font-weight:700;color:var(--color-text-heading);
+      margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:0.6px;
+      display:flex;align-items:center;gap:6px;
+    }
+    .quick-response p{margin:0;color:var(--color-text-body);font-size:14px;line-height:1.7}
+
+    /* Interactive Email Copy Box */
+    .email-copy-box{
+      display:flex;align-items:center;justify-content:space-between;
+      max-width:420px;margin:0 auto 28px;padding:8px 8px 8px 20px;
+      background:rgba(255,255,255,0.8);border:1.5px solid rgba(14,165,233,0.25);
+      border-radius:40px;box-shadow:inset 0 2px 4px rgba(15,23,42,0.03);
+      transition:all .3s ease;
+    }
+    .email-copy-box:hover{border-color:var(--color-accent);box-shadow:0 8px 20px rgba(14,165,233,0.12)}
+    .email-text{font-size:14px;font-weight:600;color:var(--color-text-heading);margin:0}
+    
+    .copy-btn{
+      background:linear-gradient(135deg,#0EA5E9,#06B6D4);
+      color:#fff;border:none;padding:10px 18px;border-radius:30px;
+      font-size:13px;font-weight:600;cursor:pointer;
+      transition:all .28s ease;display:inline-flex;align-items:center;gap:6px;
+    }
+    .copy-btn:hover{transform:scale(1.05);box-shadow:0 6px 16px rgba(14,165,233,0.35)}
+    .copy-btn.copied{background:linear-gradient(135deg,#10B981,#059669)}
+
+    /* ===== Socials 3D Grid ===== */
+    .socials-section{text-align:center;margin-top:70px;padding-bottom:40px}
+    .socials-section h3{font-size:24px;margin-bottom:8px;color:var(--color-text-heading)}
+    .socials-section p{color:var(--color-text-body);margin-bottom:32px;font-size:15px}
+
+    .social-3d-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+      max-width:680px;margin:0 auto;perspective:1000px;
+    }
+    .social-3d-card{
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:28px 20px;background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      border:1.5px solid rgba(14,165,233,0.18);border-radius:16px;
+      text-decoration:none;color:var(--color-text-heading);
+      transition:all .35s cubic-bezier(.2,.9,.2,1);
+      box-shadow:0 10px 25px rgba(15,23,42,0.06);
+      transform-style:preserve-3d;
+    }
+    .social-3d-card:hover{
+      transform:translateY(-8px) rotateX(8deg);
+      border-color:rgba(14,165,233,0.35);
+      box-shadow:0 20px 45px rgba(14,165,233,0.18);
+      background:linear-gradient(135deg,#FFFFFF 0%,#E0F2FE 100%);
+    }
+    .social-icon{
+      width:52px;height:52px;border-radius:14px;
+      background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(236,72,153,0.12));
+      color:var(--color-accent);display:flex;align-items:center;justify-content:center;
+      font-size:20px;font-weight:700;margin-bottom:12px;
+      transition:all .3s ease;border:1px solid rgba(14,165,233,0.2);
+    }
+    .social-3d-card:hover .social-icon{
+      background:linear-gradient(135deg,#0EA5E9,#EC4899);color:#fff;
+      transform:scale(1.1);box-shadow:0 8px 20px rgba(14,165,233,0.3);
+    }
+    .social-name{font-weight:700;font-size:15px;margin:0 0 4px}
+    .social-action{font-size:12px;color:var(--color-accent-dark);font-weight:600}
+
+    /* Responsive */
+    @media (max-width:768px){
+      .contact-3d-card{padding:28px 20px}
+      .social-3d-grid{grid-template-columns:1fr;gap:16px}
+      .email-copy-box{flex-direction:column;gap:12px;padding:16px;border-radius:20px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .float-shape,.status-dot::after{animation:none}
+      .contact-3d-card,.social-3d-card{transition:none}
+    }
+  </style>
 </head>
 <body class="page-contact">
   <a href="#main" class="skip-link">Skip to content</a>
+
   <header class="site-header">
     <nav class="capsule-nav" aria-label="Primary">
       <div class="nav-inner">
@@ -22,47 +211,96 @@
   </header>
 
   <main id="main" class="container">
-    <section class="contact-wrap" style="padding-top:80px">
-      <div class="contact-frame" data-animate="entry-scale">
-        <div class="contact-card">
-          <h2 style="font-size:32px;margin-bottom:12px">Let's Connect</h2>
-          <p style="font-weight:600;margin-top:8px;margin-bottom:4px;font-size:16px">Let's start our journey together</p>
-          <p style="color:var(--color-secondary);font-size:14px;margin-bottom:32px;line-height:1.7">I'm always interested in hearing about new projects and opportunities. Whether you're looking to build something from scratch, redesign an existing product, or collaborate on a challenging problem — let's talk.</p>
-          
-          <div style="background:linear-gradient(135deg,rgba(217,164,65,0.08),rgba(217,164,65,0.03));padding:24px;border-radius:12px;margin-bottom:32px;border-left:4px solid var(--color-accent)">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 16px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px">Quick Response</p>
-            <p style="margin:0;color:var(--color-text-body);font-size:14px;line-height:1.7">I aim to respond to all inquiries within 24 hours. Feel free to reach out with project details, timelines, and budget if available — it helps me give you better insights.</p>
-          </div>
 
-          <div style="display:flex;justify-content:center;margin-top:28px">
-            <a class="btn" href="mailto:hello@karinatandan.com?subject=Let's%20Connect" style="font-size:16px;padding:12px 24px">
-              ✉ Chat with Me
-            </a>
-          </div>
+    <!-- ===== Hero & Status ===== -->
+    <section class="contact-hero">
+      <div class="float-shapes" aria-hidden="true">
+        <span class="float-shape s1"></span>
+        <span class="float-shape s2"></span>
+        <span class="float-shape s3"></span>
+        <span class="float-shape s4"></span>
+      </div>
 
-          <p style="text-align:center;color:var(--color-secondary);font-size:13px;margin-top:24px">hello@karinatandan.com</p>
+      <div class="hero-inner" data-animate="entry-scale">
+        <div class="status-badge" role="status" aria-label="Status: Available for new projects">
+          <span class="status-dot"></span>
+          <span>Currently available for new projects &amp; collaborations</span>
+        </div>
+        <h1 class="contact-title">Let's Connect</h1>
+        <p class="contact-sub">Let's start our journey together</p>
+      </div>
+    </section>
+
+    <!-- ===== Interactive Icebreaker Pills ===== -->
+    <section class="icebreaker-section" data-animate="entry-scale">
+      <p class="icebreaker-label">What would you like to talk about? (Click to tailor your email)</p>
+      <div class="icebreaker-grid" role="group" aria-label="Email topic selectors">
+        <button type="button" class="icebreaker-pill active" data-subject="Let's Connect" data-body="Hi Karina,%0D%0A%0D%0AI'd love to connect and talk about collaborating on a project!%0D%0A%0D%0ABest,%0D%0A[Your Name]">✨ General Inquiry</button>
+        <button type="button" class="icebreaker-pill" data-subject="UI/UX Design Collaboration" data-body="Hi Karina,%0D%0A%0D%0AI'm reaching out because we need help designing an intuitive user experience for our product.%0D%0A%0D%0ABest,%0D%0A[Your Name]">🎨 UI/UX Design</button>
+        <button type="button" class="icebreaker-pill" data-subject="Front-end Development Project" data-body="Hi Karina,%0D%0A%0D%0AI'm looking for a front-end developer to build a fast, responsive interface. Let's chat!%0D%0A%0D%0ABest,%0D%0A[Your Name]">💻 Front-end Dev</button>
+        <button type="button" class="icebreaker-pill" data-subject="Just Saying Hi!" data-body="Hi Karina,%0D%0A%0D%0AI came across your portfolio and just wanted to reach out and say hello!%0D%0A%0D%0ABest,%0D%0A[Your Name]">👋 Just Saying Hi</button>
+      </div>
+    </section>
+
+    <!-- ===== Main 3D Contact Card ===== -->
+    <section class="contact-hub-wrap" data-animate="entry-scale">
+      <div class="contact-3d-card" id="tilt-card">
+        <p class="info-body">
+          I'm always interested in hearing about new projects and opportunities. Whether you're looking to build something from scratch, redesign an existing product, or collaborate on a challenging problem — let's talk.
+        </p>
+        
+        <div class="quick-response">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Quick Response
+          </h4>
+          <p>I aim to respond to all inquiries within 24 hours. Feel free to reach out with project details, timelines, and budget if available — it helps me give you better insights.</p>
+        </div>
+
+        <!-- 1-Click Copy Box -->
+        <div class="email-copy-box">
+          <p class="email-text">kareenatandan477@gmail.com</p>
+          <button type="button" class="copy-btn" id="copy-email-btn" aria-label="Copy email address to clipboard">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copy-text">Copy Email</span>
+          </button>
+        </div>
+
+        <!-- Main CTA Button -->
+        <div style="display:flex;justify-content:center;margin-top:10px">
+          <a class="btn" id="mailto-btn" href="mailto:hello@karinatandan.com?subject=Let's%20Connect" style="font-size:16px;padding:14px 28px">
+            ✉ Chat with Me
+          </a>
         </div>
       </div>
     </section>
 
-    <div class="section-divider" style="margin:80px 0"></div>
-
-    <section style="text-align:center;padding-bottom:60px">
-      <h3 style="font-size:20px;margin-bottom:12px;color:var(--color-text-heading)">Other Ways to Connect</h3>
-      <p style="color:var(--color-secondary);margin-bottom:32px">Follow my work or connect on professional networks</p>
+    <!-- ===== Socials 3D Grid ===== -->
+    <section class="socials-section" data-animate="entry-scale">
+      <h3>Other Ways to Connect</h3>
+      <p>Follow my work or connect on professional networks</p>
       
-      <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
-        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:linear-gradient(135deg,rgba(217,164,65,0.15),rgba(217,164,65,0.08));border-radius:12px;color:var(--color-accent);text-decoration:none;transition:all .28s ease;border:1px solid rgba(217,164,65,0.2)" title="LinkedIn" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 16px rgba(217,164,65,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
-          <span style="font-weight:bold">in</span>
+      <div class="social-3d-grid">
+        <a href="#" class="social-3d-card" title="LinkedIn">
+          <div class="social-icon">in</div>
+          <p class="social-name">LinkedIn</p>
+          <span class="social-action">Connect →</span>
         </a>
-        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:linear-gradient(135deg,rgba(217,164,65,0.15),rgba(217,164,65,0.08));border-radius:12px;color:var(--color-accent);text-decoration:none;transition:all .28s ease;border:1px solid rgba(217,164,65,0.2)" title="GitHub" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 16px rgba(217,164,65,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
-          <span style="font-weight:bold">GH</span>
+
+        <a href="#" class="social-3d-card" title="GitHub">
+          <div class="social-icon">GH</div>
+          <p class="social-name">GitHub</p>
+          <span class="social-action">View Code →</span>
         </a>
-        <a href="#" style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:linear-gradient(135deg,rgba(217,164,65,0.15),rgba(217,164,65,0.08));border-radius:12px;color:var(--color-accent);text-decoration:none;transition:all .28s ease;border:1px solid rgba(217,164,65,0.2)" title="Twitter" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 16px rgba(217,164,65,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
-          <span style="font-weight:bold">X</span>
+
+        <a href="#" class="social-3d-card" title="Twitter">
+          <div class="social-icon">X</div>
+          <p class="social-name">Twitter</p>
+          <span class="social-action">Follow →</span>
         </a>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
@@ -73,5 +311,89 @@
   </footer>
 
   <script src="scripts/main.js"></script>
+
+  <script>
+    // ===== Contact Page Interactions =====
+    (function(){
+      var emailAddress = 'hello@karinatandan.com';
+      var mailtoBtn = document.getElementById('mailto-btn');
+      var copyBtn = document.getElementById('copy-email-btn');
+      var copyText = document.getElementById('copy-text');
+      var pills = document.querySelectorAll('.icebreaker-pill');
+
+      // 1. Icebreaker topic buttons rewrite Mailto link
+      pills.forEach(function(pill){
+        pill.addEventListener('click', function(){
+          pills.forEach(function(p){ p.classList.remove('active'); });
+          pill.classList.add('active');
+
+          var subject = encodeURIComponent(pill.getAttribute('data-subject'));
+          var body = pill.getAttribute('data-body'); // Already encoded in HTML
+          
+          mailtoBtn.setAttribute('href', 'mailto:' + emailAddress + '?subject=' + subject + '&body=' + body);
+        });
+      });
+
+      // 2. Interactive Copy to Clipboard
+      if(copyBtn){
+        copyBtn.addEventListener('click', function(){
+          navigator.clipboard.writeText(emailAddress).then(function(){
+            copyBtn.classList.add('copied');
+            copyText.textContent = '✔ Copied!';
+            
+            setTimeout(function(){
+              copyBtn.classList.remove('copied');
+              copyText.textContent = 'Copy Email';
+            }, 2500);
+          }).catch(function(){
+            // Fallback if clipboard API fails
+            copyText.textContent = 'Press Ctrl+C';
+          });
+        });
+      }
+
+      // 3. Subtle parallax on floating background shapes
+      var shapes = document.querySelectorAll('.float-shape');
+      if(shapes.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        window.addEventListener('mousemove', function(e){
+          var x = (e.clientX / window.innerWidth - 0.5) * 20;
+          var y = (e.clientY / window.innerHeight - 0.5) * 20;
+          shapes.forEach(function(s, i){
+            var factor = (i + 1) * 0.6;
+            s.style.transform = 'translate(' + (x * factor) + 'px,' + (y * factor) + 'px)';
+          });
+        });
+      }
+
+      // 4. 3D Tilt Effect on Main Card
+      var tiltCard = document.getElementById('tilt-card');
+      if(tiltCard && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        tiltCard.addEventListener('mousemove', function(e){
+          var r = tiltCard.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - 0.5;
+          var py = (e.clientY - r.top) / r.height - 0.5;
+          tiltCard.style.transform = 'translateY(-6px) rotateX(' + (-py * 5) + 'deg) rotateY(' + (px * 5) + 'deg)';
+        });
+        tiltCard.addEventListener('mouseleave', function(){
+          tiltCard.style.transform = '';
+        });
+      }
+
+      // 5. 3D Tilt Effect on Social Cards
+      document.querySelectorAll('.social-3d-card').forEach(function(card){
+        if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+          card.addEventListener('mousemove', function(e){
+            var r = card.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = 'translateY(-8px) rotateX(' + (-py * 12) + 'deg) rotateY(' + (px * 12) + 'deg)';
+          });
+          card.addEventListener('mouseleave', function(){
+            card.style.transform = '';
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

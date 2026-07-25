@@ -6,9 +6,247 @@
   <title>About — Karina Tandan</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+
+  <style>
+    /* ===== About page specific styles ===== */
+
+    .about-hero{
+      position:relative;
+      text-align:center;
+      padding:20px 20px 40px;
+      overflow:hidden;
+    }
+
+    /* Floating decorative background shapes */
+    .float-shapes{
+      position:absolute;inset:0;pointer-events:none;z-index:0;
+    }
+    .float-shape{
+      position:absolute;border-radius:50%;
+      background:linear-gradient(135deg,rgba(14,165,233,0.18),rgba(236,72,153,0.15));
+      filter:blur(2px);
+      animation:floatY 8s ease-in-out infinite;
+      will-change:transform;
+    }
+    .float-shape.s1{width:120px;height:120px;top:10%;left:8%;animation-delay:0s}
+    .float-shape.s2{width:70px;height:70px;top:20%;right:10%;animation-delay:1.5s;
+      background:linear-gradient(135deg,rgba(245,158,11,0.22),rgba(6,182,212,0.18))}
+    .float-shape.s3{width:90px;height:90px;bottom:12%;left:15%;animation-delay:3s}
+    .float-shape.s4{width:50px;height:50px;bottom:22%;right:18%;animation-delay:2s;
+      background:linear-gradient(135deg,rgba(236,72,153,0.22),rgba(14,165,233,0.18))}
+
+    @keyframes floatY{
+      0%,100%{transform:translateY(0) rotate(0deg)}
+      50%{transform:translateY(-25px) rotate(8deg)}
+    }
+
+    .hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
+
+    /* Avatar orb with rotating rings */
+    .avatar-orb{
+      position:relative;width:150px;height:150px;margin:0 auto 28px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .avatar-orb::before,
+    .avatar-orb::after{
+      content:"";position:absolute;inset:-10px;border-radius:50%;
+      border:2px dashed rgba(14,165,233,0.35);
+      animation:spin 18s linear infinite;
+    }
+    .avatar-orb::after{
+      inset:-24px;border:1px dashed rgba(236,72,153,0.35);
+      animation:spin 26s linear infinite reverse;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .orb-core{
+      width:100%;height:100%;border-radius:50%;
+      background:linear-gradient(135deg,#0EA5E9,#06B6D4 50%,#EC4899);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-family:Fraunces,serif;font-weight:700;font-size:52px;
+      box-shadow:0 20px 45px rgba(14,165,233,0.35);
+      transition:transform .4s cubic-bezier(.2,.9,.2,1);
+    }
+    .avatar-orb:hover .orb-core{transform:scale(1.08) rotate(-6deg)}
+
+    .about-title{
+      font-size:clamp(32px,5vw,52px);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      letter-spacing:-0.5px;margin-bottom:10px;
+    }
+    .about-sub{color:var(--color-text-body);font-size:16px;margin-bottom:0}
+
+    /* ===== Journey Timeline ===== */
+    .journey{
+      margin-top:70px;position:relative;
+    }
+    .journey-track{
+      position:relative;display:grid;grid-template-columns:repeat(3,1fr);
+      gap:24px;padding:40px 0 20px;
+    }
+    .journey-track::before{
+      content:"";position:absolute;top:60px;left:8%;right:8%;height:3px;
+      background:linear-gradient(90deg,#0EA5E9,#06B6D4,#EC4899);
+      border-radius:3px;opacity:0.35;z-index:0;
+    }
+
+    .milestone{
+      position:relative;z-index:1;
+      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      border:1.5px solid rgba(14,165,233,0.18);
+      border-radius:16px;padding:28px 22px 22px;
+      text-align:center;cursor:pointer;
+      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .3s ease,border-color .3s ease;
+      transform-style:preserve-3d;
+      box-shadow:0 10px 28px rgba(15,23,42,0.06);
+    }
+    .milestone:hover{
+      transform:translateY(-8px) rotateX(4deg);
+      box-shadow:0 24px 55px rgba(14,165,233,0.18);
+      border-color:rgba(14,165,233,0.35);
+    }
+    .milestone.active{
+      border-color:var(--color-accent);
+      box-shadow:0 24px 55px rgba(14,165,233,0.22);
+      background:linear-gradient(135deg,#fff 0%,#E0F2FE 100%);
+    }
+
+    .milestone-dot{
+      width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,#0EA5E9,#EC4899);
+      color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;
+      margin:-46px auto 14px;box-shadow:0 8px 20px rgba(14,165,233,0.4);
+      border:4px solid #fff;font-family:Fraunces,serif;font-size:18px;
+    }
+    .milestone h4{
+      font-family:Fraunces,serif;color:var(--color-text-heading);
+      font-size:17px;margin:0 0 4px;
+    }
+    .milestone .m-tag{
+      display:inline-block;font-size:12px;color:var(--color-accent-dark);
+      font-weight:600;letter-spacing:0.4px;text-transform:uppercase;
+    }
+    .milestone .hint{
+      font-size:11px;color:var(--color-text-body);opacity:0.7;
+      margin-top:10px;letter-spacing:0.3px;
+    }
+
+    /* Expanding chapter detail */
+    .chapter-panel{
+      margin-top:28px;
+      background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(236,72,153,0.05));
+      border-left:4px solid var(--color-accent);
+      border-radius:12px;padding:0 28px;
+      max-height:0;overflow:hidden;opacity:0;
+      transition:max-height .5s ease,padding .5s ease,opacity .4s ease;
+    }
+    .chapter-panel.open{
+      max-height:500px;padding:24px 28px;opacity:1;
+    }
+    .chapter-panel p{
+      color:var(--color-text-body);line-height:1.9;margin:0;
+    }
+    .chapter-panel strong{color:var(--color-text-heading)}
+
+    /* ===== Skills - 3D flip cards ===== */
+    .skills-section{margin-top:80px}
+    .skills-header{text-align:center;margin-bottom:36px}
+    .skills-header h3{
+      font-size:clamp(24px,3.5vw,34px);
+      background:linear-gradient(135deg,#0EA5E9 0%,#EC4899 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      margin-bottom:8px;
+    }
+    .skills-header p{color:var(--color-text-body);font-size:14px;margin:0}
+
+    .skill-grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+      perspective:1200px;
+    }
+    .skill-card{
+      position:relative;height:190px;
+      transform-style:preserve-3d;
+      transition:transform .7s cubic-bezier(.2,.9,.2,1);
+      cursor:pointer;
+    }
+    .skill-card:hover,.skill-card.flipped{transform:rotateY(180deg)}
+
+    .skill-face{
+      position:absolute;inset:0;
+      border-radius:16px;padding:24px;
+      backface-visibility:hidden;-webkit-backface-visibility:hidden;
+      display:flex;flex-direction:column;justify-content:center;
+      border:1.5px solid rgba(14,165,233,0.18);
+      box-shadow:0 12px 32px rgba(15,23,42,0.08);
+    }
+    .skill-front{
+      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      align-items:flex-start;
+    }
+    .skill-icon{
+      width:48px;height:48px;border-radius:12px;
+      background:linear-gradient(135deg,#0EA5E9,#06B6D4);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;margin-bottom:14px;
+      box-shadow:0 8px 20px rgba(14,165,233,0.35);
+    }
+    .skill-front h5{
+      font-family:Fraunces,serif;color:var(--color-text-heading);
+      font-size:19px;margin:0 0 6px;
+    }
+    .skill-front .flip-hint{
+      font-size:11px;color:var(--color-accent-dark);
+      font-weight:600;letter-spacing:0.5px;text-transform:uppercase;
+      margin-top:auto;
+    }
+    .skill-back{
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 60%,#EC4899 100%);
+      color:#fff;transform:rotateY(180deg);
+      border-color:transparent;
+    }
+    .skill-back h5{
+      font-family:Fraunces,serif;color:#fff;
+      font-size:17px;margin:0 0 10px;
+    }
+    .skill-back p{
+      color:rgba(255,255,255,0.95);font-size:13.5px;
+      line-height:1.65;margin:0;
+    }
+
+    /* CTA */
+    .about-cta{
+      text-align:center;margin-top:72px;padding:40px 20px;
+      background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(236,72,153,0.06));
+      border-radius:20px;
+      border:1.5px solid rgba(14,165,233,0.15);
+    }
+    .about-cta h3{
+      font-family:Fraunces,serif;color:var(--color-text-heading);
+      font-size:26px;margin-bottom:8px;
+    }
+    .about-cta p{color:var(--color-text-body);margin-bottom:20px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .journey-track{grid-template-columns:1fr;gap:40px}
+      .journey-track::before{
+        top:0;bottom:0;left:50%;right:auto;width:3px;height:auto;
+        background:linear-gradient(180deg,#0EA5E9,#06B6D4,#EC4899);
+      }
+      .skill-grid{grid-template-columns:1fr}
+      .skill-card{height:200px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .float-shape,.avatar-orb::before,.avatar-orb::after{animation:none}
+      .skill-card{transition:none}
+    }
+  </style>
 </head>
 <body class="page-about">
   <a href="#main" class="skip-link">Skip to content</a>
+
   <header class="site-header">
     <nav class="capsule-nav" aria-label="Primary">
       <div class="nav-inner">
@@ -22,42 +260,130 @@
   </header>
 
   <main id="main" class="container">
-    <section class="about-section" style="display:flex;justify-content:center;padding-top:40px">
-      <div class="card" data-animate="entry-scale" style="max-width:800px">
-        <h2 style="text-align:center;margin-bottom:12px;font-size:32px">About Me</h2>
-        <p style="max-width:100%;margin:0 auto 24px;text-align:center;color:var(--color-secondary);font-size:14px">My journey from customer service to design & development</p>
-        
-        <div style="background:linear-gradient(135deg,rgba(217,164,65,0.1),rgba(217,164,65,0.05));padding:28px;border-radius:12px;margin:28px 0;border-left:4px solid var(--color-accent)">
-          <p style="max-width:100%;margin:0 auto 18px;text-align:left;color:var(--color-text-body);line-height:1.9">I started my career in customer service where I learned how to listen, synthesize feedback, and design experiences that remove friction. This foundation taught me that great products are built on empathy and understanding real user needs.</p>
-          
-          <p style="max-width:100%;margin:0 auto 18px;text-align:left;color:var(--color-text-body);line-height:1.9">I studied Computer Science and transitioned into front-end development and UI/UX design — building interfaces with React, crafting intuitive user flows, and using Tableau and CRM systems to turn data into product decisions.</p>
-          
-          <p style="max-width:100%;margin:0;text-align:left;color:var(--color-text-body);line-height:1.9"><strong style="color:var(--color-text-heading)">I specialize in translating customer needs into practical interfaces that are accessible, fast, and human-centered.</strong></p>
-        </div>
 
-        <h3 style="margin-top:32px;margin-bottom:16px;color:var(--color-text-heading)">Key Skills & Expertise</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
-          <div style="padding:16px;background:rgba(217,164,65,0.08);border-radius:8px;border:1px solid rgba(217,164,65,0.12)">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 8px">Frontend Development</p>
-            <p style="font-size:14px;margin:0;color:var(--color-text-body)">React, JavaScript, HTML/CSS, Responsive Design</p>
-          </div>
-          <div style="padding:16px;background:rgba(217,164,65,0.08);border-radius:8px;border:1px solid rgba(217,164,65,0.12)">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 8px">UI/UX Design</p>
-            <p style="font-size:14px;margin:0;color:var(--color-text-body)">User Research, Prototyping, Accessibility, Design Systems</p>
-          </div>
-          <div style="padding:16px;background:rgba(217,164,65,0.08);border-radius:8px;border:1px solid rgba(217,164,65,0.12)">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 8px">Data-Driven Insights</p>
-            <p style="font-size:14px;margin:0;color:var(--color-text-body)">Tableau, CRM Analytics, User Metrics, A/B Testing</p>
-          </div>
-          <div style="padding:16px;background:rgba(217,164,65,0.08);border-radius:8px;border:1px solid rgba(217,164,65,0.12)">
-            <p style="font-weight:600;color:var(--color-text-heading);margin:0 0 8px">Team Leadership</p>
-            <p style="font-size:14px;margin:0;color:var(--color-text-body)">Project Management, Mentoring, Collaboration</p>
-          </div>
-        </div>
+    <!-- ===== Hero ===== -->
+    <section class="about-hero">
+      <div class="float-shapes" aria-hidden="true">
+        <span class="float-shape s1"></span>
+        <span class="float-shape s2"></span>
+        <span class="float-shape s3"></span>
+        <span class="float-shape s4"></span>
+      </div>
 
-        <p style="text-align:center;margin-top:32px"><a class="btn" href="contact.html">Let's Work Together</a></p>
+      <div class="hero-inner" data-animate="entry-scale">
+        <div class="avatar-orb" aria-hidden="true">
+          <div class="orb-core">K</div>
+        </div>
+        <h1 class="about-title">About Me</h1>
+        <p class="about-sub">My journey from customer service to design &amp; development</p>
       </div>
     </section>
+
+    <!-- ===== Interactive Journey Timeline ===== -->
+    <section class="journey" data-animate="entry-scale" aria-label="My journey">
+      <div class="journey-track">
+        <div class="milestone" data-chapter="1" tabindex="0" role="button" aria-expanded="false">
+          <div class="milestone-dot">01</div>
+          <span class="m-tag">The Foundation</span>
+          <h4>Customer Service</h4>
+          <p class="hint">Click to read</p>
+        </div>
+
+        <div class="milestone" data-chapter="2" tabindex="0" role="button" aria-expanded="false">
+          <div class="milestone-dot">02</div>
+          <span class="m-tag">The Study</span>
+          <h4>Computer Science</h4>
+          <p class="hint">Click to read</p>
+        </div>
+
+        <div class="milestone" data-chapter="3" tabindex="0" role="button" aria-expanded="false">
+          <div class="milestone-dot">03</div>
+          <span class="m-tag">The Craft</span>
+          <h4>Design &amp; Dev</h4>
+          <p class="hint">Click to read</p>
+        </div>
+      </div>
+
+      <div class="chapter-panel" id="chapter-panel" aria-live="polite">
+        <p id="chapter-text">
+          I started my career in customer service where I learned how to listen, synthesize feedback, and design experiences that remove friction. This foundation taught me that great products are built on empathy and understanding real user needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 3D Flip Skills ===== -->
+    <section class="skills-section" data-animate="entry-scale">
+      <div class="skills-header">
+        <h3>Key Skills &amp; Expertise</h3>
+        <p>Hover or tap a card to flip it</p>
+      </div>
+
+      <div class="skill-grid">
+        <div class="skill-card" tabindex="0" role="button" aria-label="Frontend Development">
+          <div class="skill-face skill-front">
+            <div class="skill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h5>Frontend Development</h5>
+            <span class="flip-hint">Flip →</span>
+          </div>
+          <div class="skill-face skill-back">
+            <h5>Frontend Development</h5>
+            <p>React, JavaScript, HTML/CSS, and Responsive Design — building fast, accessible interfaces that work everywhere.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" tabindex="0" role="button" aria-label="UI/UX Design">
+          <div class="skill-face skill-front">
+            <div class="skill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h5>UI/UX Design</h5>
+            <span class="flip-hint">Flip →</span>
+          </div>
+          <div class="skill-face skill-back">
+            <h5>UI/UX Design</h5>
+            <p>User Research, Prototyping, Accessibility, and Design Systems — crafting intuitive flows rooted in real user needs.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" tabindex="0" role="button" aria-label="Data-Driven Insights">
+          <div class="skill-face skill-front">
+            <div class="skill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <h5>Data-Driven Insights</h5>
+            <span class="flip-hint">Flip →</span>
+          </div>
+          <div class="skill-face skill-back">
+            <h5>Data-Driven Insights</h5>
+            <p>Tableau, CRM Analytics, User Metrics, and A/B Testing — turning raw data into confident product decisions.</p>
+          </div>
+        </div>
+
+        <div class="skill-card" tabindex="0" role="button" aria-label="Team Leadership">
+          <div class="skill-face skill-front">
+            <div class="skill-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h5>Team Leadership</h5>
+            <span class="flip-hint">Flip →</span>
+          </div>
+          <div class="skill-face skill-back">
+            <h5>Team Leadership</h5>
+            <p>Project Management, Mentoring, and Collaboration — coordinating people and priorities to ship great work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="about-cta" data-animate="entry-scale">
+      <h3>Let's build something meaningful.</h3>
+      <p>I specialize in translating customer needs into practical, human-centered interfaces.</p>
+      <a class="btn" href="contact.html">Let's Work Together</a>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -68,5 +394,96 @@
   </footer>
 
   <script src="scripts/main.js"></script>
+
+  <script>
+    // ===== About page interactions =====
+    (function(){
+      // Chapter content for the timeline
+      var chapters = {
+        "1": "I started my career in <strong>customer service</strong> where I learned how to listen, synthesize feedback, and design experiences that remove friction. This foundation taught me that great products are built on empathy and understanding real user needs.",
+        "2": "I studied <strong>Computer Science</strong> and began pairing my customer-first mindset with technical fundamentals — algorithms, systems thinking, and problem-solving — that let me speak fluently with both users and engineers.",
+        "3": "I transitioned into <strong>front-end development and UI/UX design</strong> — building interfaces with React, crafting intuitive user flows, and using Tableau and CRM systems to turn data into product decisions. <strong>I specialize in translating customer needs into practical interfaces that are accessible, fast, and human-centered.</strong>"
+      };
+
+      var milestones = document.querySelectorAll('.milestone');
+      var panel = document.getElementById('chapter-panel');
+      var text  = document.getElementById('chapter-text');
+      var currentChapter = null;
+
+      function openChapter(id, el){
+        // Toggle behavior
+        if(currentChapter === id){
+          panel.classList.remove('open');
+          el.classList.remove('active');
+          el.setAttribute('aria-expanded','false');
+          currentChapter = null;
+          return;
+        }
+        milestones.forEach(function(m){
+          m.classList.remove('active');
+          m.setAttribute('aria-expanded','false');
+        });
+        el.classList.add('active');
+        el.setAttribute('aria-expanded','true');
+        text.innerHTML = chapters[id];
+        panel.classList.add('open');
+        currentChapter = id;
+      }
+
+      milestones.forEach(function(m){
+        m.addEventListener('click', function(){
+          openChapter(m.getAttribute('data-chapter'), m);
+        });
+        m.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            openChapter(m.getAttribute('data-chapter'), m);
+          }
+        });
+      });
+
+      // Open the first chapter by default
+      if(milestones[0]) openChapter('1', milestones[0]);
+
+      // Skill cards - keyboard + tap flip
+      document.querySelectorAll('.skill-card').forEach(function(card){
+        card.addEventListener('click', function(){
+          card.classList.toggle('flipped');
+        });
+        card.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            card.classList.toggle('flipped');
+          }
+        });
+      });
+
+      // Subtle parallax on the floating shapes
+      var shapes = document.querySelectorAll('.float-shape');
+      if(shapes.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        window.addEventListener('mousemove', function(e){
+          var x = (e.clientX / window.innerWidth  - 0.5) * 20;
+          var y = (e.clientY / window.innerHeight - 0.5) * 20;
+          shapes.forEach(function(s, i){
+            var factor = (i + 1) * 0.6;
+            s.style.transform = 'translate(' + (x * factor) + 'px,' + (y * factor) + 'px)';
+          });
+        });
+      }
+
+      // 3D tilt on milestone cards
+      document.querySelectorAll('.milestone').forEach(function(card){
+        card.addEventListener('mousemove', function(e){
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width  - 0.5;
+          var py = (e.clientY - r.top)  / r.height - 0.5;
+          card.style.transform = 'translateY(-8px) rotateX(' + (-py*6) + 'deg) rotateY(' + (px*6) + 'deg)';
+        });
+        card.addEventListener('mouseleave', function(){
+          card.style.transform = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
