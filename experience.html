@@ -40,7 +40,7 @@
       50%{transform:translateY(-25px) rotate(8deg)}
     }
 
-    .hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+    .hero-inner{position:relative;z-index:1;max-width:none;margin:0}
 
     .exp-title{
       font-size:clamp(32px,5vw,52px);
@@ -72,7 +72,7 @@
 
     /* ===== 3D Timeline Roadmap ===== */
     .timeline-wrap{
-      position:relative;max-width:860px;margin:0 auto;padding:10px 0 30px;
+      position:relative;max-width:1200px;margin:0 auto;padding:24px 16px 42px;
       perspective:1200px;
     }
     /* Vertical glowing timeline spine */
@@ -237,6 +237,12 @@
   </header>
 
   <main id="main" class="container">
+    <div class="bubble-layer" aria-hidden="true">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+      <span class="bubble b3"></span>
+      <span class="bubble b4"></span>
+    </div>
 
     <!-- ===== Hero ===== -->
     <section class="exp-hero">

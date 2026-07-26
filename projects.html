@@ -40,7 +40,7 @@
       50%{transform:translateY(-25px) rotate(8deg)}
     }
 
-    .hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+    .hero-inner{position:relative;z-index:1;max-width:none;margin:0}
 
     .proj-title{
       font-size:clamp(32px,5vw,52px);
@@ -84,28 +84,41 @@
       background:rgba(255,255,255,0.25);color:#fff;
     }
 
-    /* ===== 3D Project Cards Grid ===== */
+    /* ===== 3D Project Cards Stacked Layout ===== */
     .projects-container{
-      display:grid;grid-template-columns:1fr;gap:40px;
-      max-width:860px;margin:0 auto;perspective:1200px;
+      display:flex;
+      flex-direction:column;
+      gap:36px;
+      max-width:1050px;
+      margin:0 auto;
+      perspective:1200px;
     }
 
     .project-node{
+      width:100%;
       transition:all .5s cubic-bezier(.2,.9,.2,1);
     }
     .project-node.hidden{
-      opacity:0.15;transform:scale(0.96);pointer-events:none;
-      max-height:0;overflow:hidden;margin:0;padding:0;
+      opacity:0;
+      transform:scale(0.96);
+      pointer-events:none;
+      max-height:0;
+      overflow:hidden;
+      margin:0;
+      padding:0;
     }
 
     .project-card-3d{
       background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
       border:1.5px solid rgba(14,165,233,0.18);
-      border-radius:24px;padding:40px;
+      border-radius:24px;
+      padding:36px 40px;
       box-shadow:0 14px 40px rgba(15,23,42,0.06);
       transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .4s ease,border-color .4s ease;
       transform-style:preserve-3d;
-      position:relative;z-index:1;
+      position:relative;
+      z-index:1;
+      width:100%;
     }
     .project-card-3d:hover{
       box-shadow:0 28px 65px rgba(14,165,233,0.16);
@@ -113,10 +126,17 @@
       background:linear-gradient(135deg,#FFFFFF 0%,#E0F2FE 100%);
     }
 
+    .project-card-inner {
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:36px;
+      align-items:start;
+    }
+
     /* Card Header & Badges */
     .proj-badge-wrap{
       display:flex;align-items:center;justify-content:space-between;
-      flex-wrap:wrap;gap:12px;margin-bottom:16px;
+      flex-wrap:wrap;gap:12px;margin-bottom:14px;
     }
     .proj-badge{
       display:inline-flex;align-items:center;gap:8px;
@@ -132,6 +152,12 @@
     }
     @keyframes pulse{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.8);opacity:0}}
 
+    .proj-cat-tag{
+      font-size:12px;font-weight:600;color:var(--color-text-body);
+      background:rgba(14,165,233,0.08);padding:4px 12px;border-radius:14px;
+      border:1px solid rgba(14,165,233,0.15);
+    }
+
     /* Theme specific badge colors */
     .theme-blue .proj-badge{color:var(--color-accent-dark)}
     .theme-blue .badge-dot, .theme-blue .badge-dot::after{background:var(--color-accent)}
@@ -144,22 +170,38 @@
 
     .proj-name{
       font-family:Fraunces,serif;font-size:32px;color:var(--color-text-heading);
-      margin:0 0 8px;letter-spacing:-0.5px;
+      margin:0 0 6px;letter-spacing:-0.5px;
     }
     .proj-type{
-      color:var(--color-secondary);font-size:15px;font-weight:600;margin-bottom:18px;
+      color:var(--color-secondary);font-size:15px;font-weight:600;margin-bottom:16px;
     }
     .proj-desc{
-      color:var(--color-text-body);font-size:15px;line-height:1.8;margin-bottom:24px;
+      color:var(--color-text-body);font-size:15px;line-height:1.75;margin-bottom:20px;
+    }
+
+    .proj-main-column {
+      display:flex;
+      flex-direction:column;
+    }
+
+    .proj-side-column {
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      justify-content:center;
     }
 
     /* Impact & Achievements Box */
     .proj-impact-box{
-      padding:24px;border-radius:16px;margin:24px 0;
+      padding:24px;border-radius:16px;margin:0;
       border-top:1px solid rgba(14,165,233,0.1);
       border-right:1px solid rgba(14,165,233,0.1);
       border-bottom:1px solid rgba(14,165,233,0.1);
       transition:all .3s ease;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
     .theme-blue .proj-impact-box{
       background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(6,182,212,0.03));
@@ -188,7 +230,7 @@
     }
     .impact-list li{
       position:relative;padding-left:24px;color:var(--color-text-body);
-      font-size:14px;line-height:1.7;
+      font-size:14px;line-height:1.6;
     }
     .impact-list li::before{
       content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
@@ -204,8 +246,8 @@
 
     /* Interactive Tech Stack Tags */
     .stack-wrap{
-      display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:24px;
-      padding-top:18px;border-top:1px solid rgba(14,165,233,0.12);
+      display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:auto;
+      padding-top:16px;border-top:1px solid rgba(14,165,233,0.12);
     }
     .stack-label{font-size:13px;font-weight:700;color:var(--color-text-heading);margin-right:4px}
     .stack-tag{
@@ -229,9 +271,15 @@
     .proj-cta p{color:var(--color-text-heading);font-size:20px;margin-bottom:18px;font-weight:700;font-family:Fraunces,serif}
 
     /* Responsive */
-    @media (max-width:768px){
-      .project-card-3d{padding:28px 20px}
-      .proj-name{font-size:26px}
+    @media (max-width:850px){
+      .project-card-inner{grid-template-columns:1fr;gap:24px}
+      .project-card-3d{padding:28px 24px}
+      .proj-impact-box{margin-top:8px}
+    }
+
+    @media (max-width:480px){
+      .project-card-3d{padding:24px 18px}
+      .proj-name{font-size:24px}
       .filter-grid{border-radius:20px}
     }
 
@@ -257,6 +305,12 @@
   </header>
 
   <main id="main" class="container">
+    <div class="bubble-layer" aria-hidden="true">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+      <span class="bubble b3"></span>
+      <span class="bubble b4"></span>
+    </div>
 
     <!-- ===== Hero ===== -->
     <section class="proj-hero">
@@ -301,36 +355,42 @@
       <!-- Project 1: Dipin Donuts -->
       <article class="project-node" data-category="e-commerce" data-animate="entry-scale">
         <div class="project-card-3d theme-blue">
-          <div class="proj-badge-wrap">
-            <span class="proj-badge">
-              <span class="badge-dot"></span>
-              Featured Project
-            </span>
-            <span style="font-size:12px;font-weight:600;color:var(--color-text-body);opacity:0.7">E-Commerce</span>
-          </div>
+          <div class="project-card-inner">
+            <div class="proj-main-column">
+              <div class="proj-badge-wrap">
+                <span class="proj-badge">
+                  <span class="badge-dot"></span>
+                  Featured Project
+                </span>
+                <span class="proj-cat-tag">E-Commerce</span>
+              </div>
 
-          <h3 class="proj-name">Dipin Donuts</h3>
-          <p class="proj-type">E-commerce Storefront</p>
-          <p class="proj-desc">Designed and implemented a fully functional e-commerce storefront for Dipin Donuts, a specialty bakery. The project focused on creating conversion-friendly user flows, ensuring accessibility compliance, and integrating a lightweight CMS that allows the client to independently manage product listings, promotions, and inventory.</p>
+              <h3 class="proj-name">Dipin Donuts</h3>
+              <p class="proj-type">E-commerce Storefront</p>
+              <p class="proj-desc">Designed and implemented a fully functional e-commerce storefront for Dipin Donuts, a specialty bakery. The project focused on creating conversion-friendly user flows, ensuring accessibility compliance, and integrating a lightweight CMS that allows the client to independently manage product listings, promotions, and inventory.</p>
 
-          <div class="proj-impact-box">
-            <p class="impact-title">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Key Achievements
-            </p>
-            <ul class="impact-list">
-              <li>Increased conversion rate by 34% through optimized checkout flow</li>
-              <li>Achieved WCAG 2.1 AA accessibility standards</li>
-              <li>Reduced page load time by 45% with optimized assets</li>
-            </ul>
-          </div>
+              <div class="stack-wrap" aria-label="Technologies used">
+                <span class="stack-label">Technologies:</span>
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">Node.js</span>
+                <span class="stack-tag">MongoDB</span>
+                <span class="stack-tag">Stripe API</span>
+              </div>
+            </div>
 
-          <div class="stack-wrap" aria-label="Technologies used">
-            <span class="stack-label">Technologies:</span>
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">Node.js</span>
-            <span class="stack-tag">MongoDB</span>
-            <span class="stack-tag">Stripe API</span>
+            <div class="proj-side-column">
+              <div class="proj-impact-box">
+                <p class="impact-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Key Achievements
+                </p>
+                <ul class="impact-list">
+                  <li>Increased conversion rate by 34% through optimized checkout flow</li>
+                  <li>Achieved WCAG 2.1 AA accessibility standards</li>
+                  <li>Reduced page load time by 45% with optimized assets</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -338,36 +398,42 @@
       <!-- Project 2: Mediclick -->
       <article class="project-node" data-category="healthcare" data-animate="entry-scale">
         <div class="project-card-3d theme-emerald">
-          <div class="proj-badge-wrap">
-            <span class="proj-badge">
-              <span class="badge-dot"></span>
-              Healthcare Tech
-            </span>
-            <span style="font-size:12px;font-weight:600;color:var(--color-text-body);opacity:0.7">Healthcare</span>
-          </div>
+          <div class="project-card-inner">
+            <div class="proj-main-column">
+              <div class="proj-badge-wrap">
+                <span class="proj-badge">
+                  <span class="badge-dot"></span>
+                  Healthcare Tech
+                </span>
+                <span class="proj-cat-tag">Healthcare</span>
+              </div>
 
-          <h3 class="proj-name">Mediclick</h3>
-          <p class="proj-type">Appointment Booking Platform</p>
-          <p class="proj-desc">Built a streamlined healthcare appointment scheduling platform that simplifies the booking process for patients and reduces administrative overhead for medical practices. The intuitive interface guides users through finding specialists and booking appointments with minimal friction.</p>
+              <h3 class="proj-name">Mediclick</h3>
+              <p class="proj-type">Appointment Booking Platform</p>
+              <p class="proj-desc">Built a streamlined healthcare appointment scheduling platform that simplifies the booking process for patients and reduces administrative overhead for medical practices. The intuitive interface guides users through finding specialists and booking appointments with minimal friction.</p>
 
-          <div class="proj-impact-box">
-            <p class="impact-title">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Impact Metrics
-            </p>
-            <ul class="impact-list">
-              <li>Reduced booking time from 15 min to 3 min per appointment</li>
-              <li>98% uptime with automated reminder system</li>
-              <li>Served 50,000+ patients in first year</li>
-            </ul>
-          </div>
+              <div class="stack-wrap" aria-label="Technologies used">
+                <span class="stack-label">Technologies:</span>
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Firebase</span>
+                <span class="stack-tag">Twilio</span>
+              </div>
+            </div>
 
-          <div class="stack-wrap" aria-label="Technologies used">
-            <span class="stack-label">Technologies:</span>
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">TypeScript</span>
-            <span class="stack-tag">Firebase</span>
-            <span class="stack-tag">Twilio</span>
+            <div class="proj-side-column">
+              <div class="proj-impact-box">
+                <p class="impact-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Impact Metrics
+                </p>
+                <ul class="impact-list">
+                  <li>Reduced booking time from 15 min to 3 min per appointment</li>
+                  <li>98% uptime with automated reminder system</li>
+                  <li>Served 50,000+ patients in first year</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -375,36 +441,42 @@
       <!-- Project 3: Ocean Fashion -->
       <article class="project-node" data-category="e-commerce" data-animate="entry-scale">
         <div class="project-card-3d theme-pink">
-          <div class="proj-badge-wrap">
-            <span class="proj-badge">
-              <span class="badge-dot"></span>
-              Fashion Retail
-            </span>
-            <span style="font-size:12px;font-weight:600;color:var(--color-text-body);opacity:0.7">E-Commerce</span>
-          </div>
+          <div class="project-card-inner">
+            <div class="proj-main-column">
+              <div class="proj-badge-wrap">
+                <span class="proj-badge">
+                  <span class="badge-dot"></span>
+                  Fashion Retail
+                </span>
+                <span class="proj-cat-tag">E-Commerce</span>
+              </div>
 
-          <h3 class="proj-name">Ocean Fashion</h3>
-          <p class="proj-type">Modern E-commerce Platform</p>
-          <p class="proj-desc">Developed a contemporary fashion e-commerce platform featuring rich product experiences, advanced filtering, and a seamless checkout process. The platform emphasizes visual storytelling with high-quality product photography and curated collections.</p>
+              <h3 class="proj-name">Ocean Fashion</h3>
+              <p class="proj-type">Modern E-commerce Platform</p>
+              <p class="proj-desc">Developed a contemporary fashion e-commerce platform featuring rich product experiences, advanced filtering, and a seamless checkout process. The platform emphasizes visual storytelling with high-quality product photography and curated collections.</p>
 
-          <div class="proj-impact-box">
-            <p class="impact-title">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Performance
-            </p>
-            <ul class="impact-list">
-              <li>Mobile-first responsive design with 99.2% cross-browser compatibility</li>
-              <li>Average session duration increased by 280%</li>
-              <li>Smart recommendation engine increased AOV by 22%</li>
-            </ul>
-          </div>
+              <div class="stack-wrap" aria-label="Technologies used">
+                <span class="stack-label">Technologies:</span>
+                <span class="stack-tag">Next.js</span>
+                <span class="stack-tag">GraphQL</span>
+                <span class="stack-tag">Shopify API</span>
+                <span class="stack-tag">TailwindCSS</span>
+              </div>
+            </div>
 
-          <div class="stack-wrap" aria-label="Technologies used">
-            <span class="stack-label">Technologies:</span>
-            <span class="stack-tag">Next.js</span>
-            <span class="stack-tag">GraphQL</span>
-            <span class="stack-tag">Shopify API</span>
-            <span class="stack-tag">TailwindCSS</span>
+            <div class="proj-side-column">
+              <div class="proj-impact-box">
+                <p class="impact-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Performance
+                </p>
+                <ul class="impact-list">
+                  <li>Mobile-first responsive design with 99.2% cross-browser compatibility</li>
+                  <li>Average session duration increased by 280%</li>
+                  <li>Smart recommendation engine increased AOV by 22%</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </article>

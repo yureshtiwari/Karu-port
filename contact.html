@@ -40,7 +40,7 @@
       50%{transform:translateY(-25px) rotate(8deg)}
     }
 
-    .hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+    .hero-inner{position:relative;z-index:1;max-width:none;margin:0}
 
     /* Status Badge */
     .status-badge{
@@ -92,7 +92,7 @@
 
     /* ===== Main 3D Contact Card ===== */
     .contact-hub-wrap{
-      position:relative;z-index:1;max-width:720px;margin:0 auto;
+      position:relative;z-index:1;max-width:1100px;margin:0 auto;
       perspective:1200px;
     }
     .contact-3d-card{
@@ -108,7 +108,7 @@
       border-color:rgba(14,165,233,0.35);
     }
 
-    .info-body{color:var(--color-text-body);font-size:15px;line-height:1.8;margin-bottom:28px;text-align:center}
+    .info-body{color:var(--color-text-body);font-size:15px;line-height:1.8;margin-bottom:28px;text-align:left}
 
     /* Quick Response Box */
     .quick-response{
@@ -211,6 +211,12 @@
   </header>
 
   <main id="main" class="container">
+    <div class="bubble-layer" aria-hidden="true">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+      <span class="bubble b3"></span>
+      <span class="bubble b4"></span>
+    </div>
 
     <!-- ===== Hero & Status ===== -->
     <section class="contact-hero">
@@ -267,8 +273,8 @@
         </div>
 
         <!-- Main CTA Button -->
-        <div style="display:flex;justify-content:center;margin-top:10px">
-          <a class="btn" id="mailto-btn" href="mailto:hello@karinatandan.com?subject=Let's%20Connect" style="font-size:16px;padding:14px 28px">
+        <div class="button-row">
+          <a class="btn" id="mailto-btn" href="mailto:kareenatandan477@gmail.com?subject=Let's%20Connect" style="font-size:16px;padding:14px 28px">
             ✉ Chat with Me
           </a>
         </div>
@@ -315,7 +321,7 @@
   <script>
     // ===== Contact Page Interactions =====
     (function(){
-      var emailAddress = 'hello@karinatandan.com';
+      var emailAddress = 'kareenatandan477@gmail.com';
       var mailtoBtn = document.getElementById('mailto-btn');
       var copyBtn = document.getElementById('copy-email-btn');
       var copyText = document.getElementById('copy-text');

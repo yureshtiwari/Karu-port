@@ -6,6 +6,7 @@
   <title>Karina Tandan — Designer & Front-end</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/hero.css">
 </head>
 <body class="page-home">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -23,19 +24,44 @@
 
   <main id="main">
     <!-- Hero Section -->
-    <section class="container hero">
-      <div class="hero-grid">
-        <div class="hero-left" data-animate="entry-left">
+    <section class="hero-section">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid-pattern"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-glow hero-glow-3"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-content" data-animate="hero-content">
+          <span class="hero-intro">Introducing</span>
           <h1 class="hero-name">Karina Tandan</h1>
+          <p class="hero-role">Designer &amp; Front-end Developer</p>
           <p class="hero-tagline">I bridge the gap between customer needs and technology by transforming real-world challenges into intuitive, user-focused digital solutions. Combining customer service expertise with technical skills, I create experiences that are both functional and meaningful.</p>
-          <p class="hero-cta"><a class="btn" href="#about">Explore My Work</a></p>
+          <div class="hero-cta-group">
+            <a class="btn hero-btn-primary" href="#about">Explore My Work</a>
+            <a class="btn hero-btn-secondary" href="contact.html">Get In Touch</a>
+          </div>
         </div>
 
-        <div class="hero-right" data-animate="entry-right">
-          <div class="hero-right">
-    <img src="Images/Karina.jpg" alt="Karina Tandan" style="width:400px; border:2px solid rgb(0, 47, 255);">
-</div>
+        <div class="hero-visual" data-animate="hero-visual">
+          <div class="profile-card" id="profileCard">
+            <div class="profile-ring" aria-hidden="true"></div>
+            <div class="profile-image-wrap">
+              <img src="images/image.png" alt="Karina Tandan" class="profile-image" loading="eager">
+              <div class="profile-image-glow" aria-hidden="true"></div>
+            </div>
+
+            <div class="tech-badge badge-html" aria-label="HTML">HTML</div>
+            <div class="tech-badge badge-css" aria-label="CSS">CSS</div>
+            <div class="tech-badge badge-js" aria-label="JavaScript">JavaScript</div>
+            <div class="tech-badge badge-react" aria-label="React">React</div>
+            <div class="tech-badge badge-node" aria-label="Node.js">Node.js</div>
+            <div class="tech-badge badge-git" aria-label="Git">Git</div>
+            <div class="tech-badge badge-figma" aria-label="Figma">Figma</div>
           </div>
+
+          <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -97,25 +123,37 @@
       </div>
       <section class="featured-grid">
         <div class="featured-item" data-animate="entry-scale">
-          <h4>Dipin Donuts</h4>
-          <p>E-commerce Storefront</p>
-          <p style="font-size:13px;color:var(--color-text-body);margin-top:12px">Conversion-optimized bakery e-commerce with integrated CMS</p>
-          <a class="btn" style="margin-top:12px;font-size:13px;padding:8px 12px" href="projects.html">View Project</a>
+          <div class="featured-item-content">
+            <h4>Dipin Donuts</h4>
+            <p class="featured-type">E-commerce Storefront</p>
+            <p class="featured-desc">Conversion-optimized bakery e-commerce with integrated CMS and inventory management.</p>
+          </div>
+          <div class="featured-item-action">
+            <a class="btn" href="projects.html">View Details &rarr;</a>
+          </div>
         </div>
         <div class="featured-item" data-animate="entry-scale">
-          <h4>Mediclick</h4>
-          <p>Appointment Booking</p>
-          <p style="font-size:13px;color:var(--color-text-body);margin-top:12px">Streamlined healthcare appointment scheduling platform</p>
-          <a class="btn" style="margin-top:12px;font-size:13px;padding:8px 12px" href="projects.html">View Project</a>
+          <div class="featured-item-content">
+            <h4>Mediclick</h4>
+            <p class="featured-type">Appointment Booking Platform</p>
+            <p class="featured-desc">Streamlined healthcare appointment scheduling platform reducing patient wait times.</p>
+          </div>
+          <div class="featured-item-action">
+            <a class="btn" href="projects.html">View Details &rarr;</a>
+          </div>
         </div>
         <div class="featured-item" data-animate="entry-scale">
-          <h4>Ocean Fashion</h4>
-          <p>E-commerce Site</p>
-          <p style="font-size:13px;color:var(--color-text-body);margin-top:12px">Modern fashion retail platform with rich product experiences</p>
-          <a class="btn" style="margin-top:12px;font-size:13px;padding:8px 12px" href="projects.html">View Project</a>
+          <div class="featured-item-content">
+            <h4>Ocean Fashion</h4>
+            <p class="featured-type">Modern E-commerce Site</p>
+            <p class="featured-desc">Contemporary fashion retail platform focused on visual storytelling and high conversions.</p>
+          </div>
+          <div class="featured-item-action">
+            <a class="btn" href="projects.html">View Details &rarr;</a>
+          </div>
         </div>
       </section>
-      <div style="text-align:center;margin-top:32px">
+      <div class="section-action">
         <a class="btn" href="projects.html">View All Projects</a>
       </div>
     </section>
@@ -145,5 +183,6 @@
   </footer>
 
   <script src="scripts/main.js"></script>
+  <script src="scripts/hero.js"></script>
 </body>
 </html>
