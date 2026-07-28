@@ -90,108 +90,248 @@
       transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,165,233,0.25);
     }
 
-    /* ===== Main 3D Contact Card ===== */
+    /* ===== Two-Column Contact Grid ===== */
     .contact-hub-wrap{
       position:relative;z-index:1;max-width:1100px;margin:0 auto;
       perspective:1200px;
     }
-    .contact-3d-card{
+    .contact-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;
+    }
+
+    .contact-left{
+      display:flex;flex-direction:column;gap:28px;
+    }
+    .contact-left-intro h3{
+      font-family:Fraunces,serif;font-size:24px;color:var(--color-text-heading);
+      margin:0 0 12px;
+    }
+    .contact-left-intro p{
+      color:var(--color-text-body);font-size:15px;line-height:1.8;margin:0;
+    }
+
+    /* Contact Info Items */
+    .contact-info-list{
+      display:flex;flex-direction:column;gap:18px;
+    }
+    .contact-info-item{
+      display:flex;align-items:center;gap:14px;
+      padding:16px 20px;border-radius:14px;
       background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
-      border:1.5px solid rgba(14,165,233,0.2);
-      border-radius:20px;padding:40px;
-      box-shadow:0 18px 50px rgba(15,23,42,0.08);
-      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .4s ease;
-      transform-style:preserve-3d;
+      border:1.5px solid rgba(14,165,233,0.12);
+      box-shadow:0 4px 12px rgba(15,23,42,0.04);
+      transition:all .3s cubic-bezier(.2,.9,.2,1);
     }
-    .contact-3d-card:hover{
-      box-shadow:0 28px 65px rgba(14,165,233,0.18);
-      border-color:rgba(14,165,233,0.35);
+    .contact-info-item:hover{
+      border-color:rgba(14,165,233,0.25);
+      box-shadow:0 8px 20px rgba(14,165,233,0.1);
+      transform:translateY(-2px);
     }
+    .contact-info-icon{
+      width:42px;height:42px;border-radius:12px;flex-shrink:0;
+      background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(236,72,153,0.08));
+      display:flex;align-items:center;justify-content:center;
+      color:var(--color-accent);
+      border:1px solid rgba(14,165,233,0.15);
+    }
+    .contact-info-text{display:flex;flex-direction:column}
+    .contact-info-label{font-size:12px;font-weight:600;color:var(--color-text-body);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
+    .contact-info-value{font-size:14px;font-weight:600;color:var(--color-text-heading)}
 
-    .info-body{color:var(--color-text-body);font-size:15px;line-height:1.8;margin-bottom:28px;text-align:left}
-
-    /* Quick Response Box */
-    .quick-response{
-      background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(236,72,153,0.05));
-      padding:24px;border-radius:14px;margin-bottom:32px;
-      border-left:4px solid var(--color-accent);
-      text-align:left;
+    /* Social links in left column */
+    .contact-socials-label{
+      font-size:12px;font-weight:600;color:var(--color-text-body);
+      text-transform:uppercase;letter-spacing:0.6px;margin-bottom:4px;
     }
-    .quick-response h4{
-      font-family:Inter,sans-serif;font-weight:700;color:var(--color-text-heading);
-      margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:0.6px;
-      display:flex;align-items:center;gap:6px;
+    .contact-socials-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
     }
-    .quick-response p{margin:0;color:var(--color-text-body);font-size:14px;line-height:1.7}
-
-    /* Interactive Email Copy Box */
-    .email-copy-box{
-      display:flex;align-items:center;justify-content:space-between;
-      max-width:420px;margin:0 auto 28px;padding:8px 8px 8px 20px;
-      background:rgba(255,255,255,0.8);border:1.5px solid rgba(14,165,233,0.25);
-      border-radius:40px;box-shadow:inset 0 2px 4px rgba(15,23,42,0.03);
-      transition:all .3s ease;
-    }
-    .email-copy-box:hover{border-color:var(--color-accent);box-shadow:0 8px 20px rgba(14,165,233,0.12)}
-    .email-text{font-size:14px;font-weight:600;color:var(--color-text-heading);margin:0}
-    
-    .copy-btn{
-      background:linear-gradient(135deg,#0EA5E9,#06B6D4);
-      color:#fff;border:none;padding:10px 18px;border-radius:30px;
-      font-size:13px;font-weight:600;cursor:pointer;
-      transition:all .28s ease;display:inline-flex;align-items:center;gap:6px;
-    }
-    .copy-btn:hover{transform:scale(1.05);box-shadow:0 6px 16px rgba(14,165,233,0.35)}
-    .copy-btn.copied{background:linear-gradient(135deg,#10B981,#059669)}
-
-    /* ===== Socials 3D Grid ===== */
-    .socials-section{text-align:center;margin-top:70px;padding-bottom:40px}
-    .socials-section h3{font-size:24px;margin-bottom:8px;color:var(--color-text-heading)}
-    .socials-section p{color:var(--color-text-body);margin-bottom:32px;font-size:15px}
-
-    .social-3d-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-      max-width:680px;margin:0 auto;perspective:1000px;
-    }
-    .social-3d-card{
+    .social-card{
       display:flex;flex-direction:column;align-items:center;justify-content:center;
-      padding:28px 20px;background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      padding:22px 14px;background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
       border:1.5px solid rgba(14,165,233,0.18);border-radius:16px;
       text-decoration:none;color:var(--color-text-heading);
       transition:all .35s cubic-bezier(.2,.9,.2,1);
       box-shadow:0 10px 25px rgba(15,23,42,0.06);
       transform-style:preserve-3d;
     }
-    .social-3d-card:hover{
+    .social-card:hover{
       transform:translateY(-8px) rotateX(8deg);
       border-color:rgba(14,165,233,0.35);
       box-shadow:0 20px 45px rgba(14,165,233,0.18);
       background:linear-gradient(135deg,#FFFFFF 0%,#E0F2FE 100%);
     }
-    .social-icon{
-      width:52px;height:52px;border-radius:14px;
+    .social-card-icon{
+      width:44px;height:44px;border-radius:12px;
       background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(236,72,153,0.12));
       color:var(--color-accent);display:flex;align-items:center;justify-content:center;
-      font-size:20px;font-weight:700;margin-bottom:12px;
+      font-size:18px;margin-bottom:10px;
       transition:all .3s ease;border:1px solid rgba(14,165,233,0.2);
     }
-    .social-3d-card:hover .social-icon{
+    .social-card:hover .social-card-icon{
       background:linear-gradient(135deg,#0EA5E9,#EC4899);color:#fff;
       transform:scale(1.1);box-shadow:0 8px 20px rgba(14,165,233,0.3);
     }
-    .social-name{font-weight:700;font-size:15px;margin:0 0 4px}
-    .social-action{font-size:12px;color:var(--color-accent-dark);font-weight:600}
+    .social-card-name{font-weight:700;font-size:14px;margin:0 0 2px}
+    .social-card-action{font-size:11px;color:var(--color-accent-dark);font-weight:600}
 
-    /* Responsive */
+    /* ===== Contact Form (Right Column) ===== */
+    .contact-form-card{
+      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      border:1.5px solid rgba(14,165,233,0.2);
+      border-radius:20px;padding:36px;
+      box-shadow:0 18px 50px rgba(15,23,42,0.08);
+      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .4s ease,border-color .4s ease;
+      transform-style:preserve-3d;
+    }
+    .contact-form-card:hover{
+      box-shadow:0 28px 65px rgba(14,165,233,0.18);
+      border-color:rgba(14,165,233,0.35);
+    }
+    .contact-form-header{
+      margin-bottom:28px;
+    }
+    .contact-form-header h3{
+      font-family:Fraunces,serif;font-size:22px;color:var(--color-text-heading);
+      margin:0 0 6px;
+    }
+    .contact-form-header p{
+      color:var(--color-text-body);font-size:14px;margin:0;line-height:1.6;
+    }
+
+    /* Form Groups */
+    .form-group{margin-bottom:20px}
+    .form-group label{
+      display:block;font-size:13px;font-weight:600;color:var(--color-text-heading);
+      margin-bottom:6px;letter-spacing:0.2px;
+    }
+    .form-group label .required{
+      color:#EC4899;margin-left:2px;
+    }
+
+    .form-input,
+    .form-textarea{
+      width:100%;padding:12px 16px;
+      font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--color-text-heading);
+      background:rgba(255,255,255,0.8);
+      border:1.5px solid rgba(14,165,233,0.2);
+      border-radius:12px;
+      box-shadow:inset 0 2px 4px rgba(15,23,42,0.03);
+      transition:all .3s ease;
+      outline:none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder{
+      color:#94a3b8;
+    }
+    .form-input:focus,
+    .form-textarea:focus{
+      border-color:var(--color-accent);
+      box-shadow:0 0 0 3px rgba(14,165,233,0.12),inset 0 2px 4px rgba(15,23,42,0.03);
+      background:#fff;
+    }
+    .form-textarea{resize:vertical;min-height:120px;line-height:1.6}
+
+    /* Validation states */
+    .form-group.has-error .form-input,
+    .form-group.has-error .form-textarea{
+      border-color:#EF4444;
+      box-shadow:0 0 0 3px rgba(239,68,68,0.1);
+    }
+    .form-group.has-success .form-input,
+    .form-group.has-success .form-textarea{
+      border-color:#10B981;
+    }
+    .form-error-msg{
+      display:none;font-size:12px;color:#EF4444;margin-top:6px;font-weight:500;
+      align-items:center;gap:4px;
+    }
+    .form-group.has-error .form-error-msg{
+      display:flex;
+    }
+
+    /* Submit Button */
+    .form-submit-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      width:100%;padding:14px 28px;border:none;border-radius:12px;
+      background:linear-gradient(135deg,var(--color-accent),var(--color-secondary));
+      color:#fff;font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:600;
+      cursor:pointer;position:relative;overflow:hidden;
+      box-shadow:0 8px 30px rgba(14,165,233,0.3);
+      transition:transform .3s cubic-bezier(.2,.9,.2,1),box-shadow .3s ease,opacity .3s ease;
+      letter-spacing:0.3px;
+    }
+    .form-submit-btn::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);
+      opacity:0;transition:opacity .3s ease;
+    }
+    .form-submit-btn:hover:not(:disabled){
+      transform:translateY(-3px);
+      box-shadow:0 12px 40px rgba(14,165,233,0.45);
+    }
+    .form-submit-btn:hover:not(:disabled)::before{
+      opacity:1;
+    }
+    .form-submit-btn:focus-visible{
+      outline:3px solid rgba(14,165,233,0.4);outline-offset:4px;
+    }
+    .form-submit-btn:disabled{
+      opacity:0.7;cursor:not-allowed;transform:none;
+    }
+
+    /* Spinner inside button */
+    .btn-spinner{
+      display:none;width:18px;height:18px;
+      border:2.5px solid rgba(255,255,255,0.3);
+      border-top-color:#fff;border-radius:50%;
+      animation:spin .6s linear infinite;
+    }
+    .form-submit-btn.loading .btn-text{display:none}
+    .form-submit-btn.loading .btn-spinner{display:inline-block}
+    .form-submit-btn.loading .btn-icon{display:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Form Messages (success / error) */
+    .form-message{
+      display:none;padding:14px 18px;border-radius:12px;
+      font-size:14px;font-weight:500;margin-top:16px;
+      align-items:center;gap:8px;
+    }
+    .form-message.visible{display:flex}
+    .form-message.success{
+      background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(6,182,212,0.08));
+      border:1px solid rgba(16,185,129,0.25);color:#059669;
+    }
+    .form-message.error{
+      background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(236,72,153,0.08));
+      border:1px solid rgba(239,68,68,0.25);color:#DC2626;
+    }
+
+    /* ===== Socials Section (below grid) ===== */
+    .socials-section{text-align:center;margin-top:70px;padding-bottom:40px}
+    .socials-section h3{font-size:24px;margin-bottom:8px;color:var(--color-text-heading)}
+    .socials-section p{color:var(--color-text-body);margin-bottom:32px;font-size:15px}
+
+    /* ===== Responsive ===== */
+    @media (max-width:900px){
+      .contact-grid{grid-template-columns:1fr;gap:32px}
+      .contact-socials-grid{grid-template-columns:repeat(3,1fr)}
+    }
+
     @media (max-width:768px){
-      .contact-3d-card{padding:28px 20px}
-      .social-3d-grid{grid-template-columns:1fr;gap:16px}
-      .email-copy-box{flex-direction:column;gap:12px;padding:16px;border-radius:20px}
+      .contact-form-card{padding:28px 20px}
+      .contact-socials-grid{grid-template-columns:1fr;gap:12px}
+      .contact-info-item{padding:14px 16px}
+    }
+
+    @media (max-width:480px){
+      .contact-socials-grid{grid-template-columns:1fr 1fr}
     }
 
     @media (prefers-reduced-motion:reduce){
       .float-shape,.status-dot::after{animation:none}
-      .contact-3d-card,.social-3d-card{transition:none}
+      .contact-form-card,.social-card{transition:none}
     }
   </style>
 </head>
@@ -241,78 +381,201 @@
     <section class="icebreaker-section" data-animate="entry-scale">
       <p class="icebreaker-label">What would you like to talk about? (Click to tailor your email)</p>
       <div class="icebreaker-grid" role="group" aria-label="Email topic selectors">
-        <button type="button" class="icebreaker-pill active" data-subject="Let's Connect" data-body="Hi Karina,%0D%0A%0D%0AI'd love to connect and talk about collaborating on a project!%0D%0A%0D%0ABest,%0D%0A[Your Name]">✨ General Inquiry</button>
-        <button type="button" class="icebreaker-pill" data-subject="UI/UX Design Collaboration" data-body="Hi Karina,%0D%0A%0D%0AI'm reaching out because we need help designing an intuitive user experience for our product.%0D%0A%0D%0ABest,%0D%0A[Your Name]">🎨 UI/UX Design</button>
-        <button type="button" class="icebreaker-pill" data-subject="Front-end Development Project" data-body="Hi Karina,%0D%0A%0D%0AI'm looking for a front-end developer to build a fast, responsive interface. Let's chat!%0D%0A%0D%0ABest,%0D%0A[Your Name]">💻 Front-end Dev</button>
-        <button type="button" class="icebreaker-pill" data-subject="Just Saying Hi!" data-body="Hi Karina,%0D%0A%0D%0AI came across your portfolio and just wanted to reach out and say hello!%0D%0A%0D%0ABest,%0D%0A[Your Name]">👋 Just Saying Hi</button>
+        <button type="button" class="icebreaker-pill active" data-subject="Let's Connect" data-body="Hi Karina,%0D%0A%0D%0AI'd love to connect and talk about collaborating on a project!%0D%0A%0D%0ABest,%0D%0A[Your Name]">General Inquiry</button>
+        <button type="button" class="icebreaker-pill" data-subject="UI/UX Design Collaboration" data-body="Hi Karina,%0D%0A%0D%0AI'm reaching out because we need help designing an intuitive user experience for our product.%0D%0A%0D%0ABest,%0D%0A[Your Name]">UI/UX Design</button>
+        <button type="button" class="icebreaker-pill" data-subject="Front-end Development Project" data-body="Hi Karina,%0D%0A%0D%0AI'm looking for a front-end developer to build a fast, responsive interface. Let's chat!%0D%0A%0D%0ABest,%0D%0A[Your Name]">Front-end Dev</button>
+        <button type="button" class="icebreaker-pill" data-subject="Just Saying Hi!" data-body="Hi Karina,%0D%0A%0D%0AI came across your portfolio and just wanted to reach out and say hello!%0D%0A%0D%0ABest,%0D%0A[Your Name]">Just Saying Hi</button>
       </div>
     </section>
 
-    <!-- ===== Main 3D Contact Card ===== -->
+    <!-- ===== Two-Column Contact Grid ===== -->
     <section class="contact-hub-wrap" data-animate="entry-scale">
-      <div class="contact-3d-card" id="tilt-card">
-        <p class="info-body">
-          I'm always interested in hearing about new projects and opportunities. Whether you're looking to build something from scratch, redesign an existing product, or collaborate on a challenging problem — let's talk.
-        </p>
-        
-        <div class="quick-response">
-          <h4>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Quick Response
-          </h4>
-          <p>I aim to respond to all inquiries within 24 hours. Feel free to reach out with project details, timelines, and budget if available — it helps me give you better insights.</p>
+      <div class="contact-grid">
+
+        <!-- Left Column: Info + Socials -->
+        <div class="contact-left">
+          <div class="contact-left-intro">
+            <h3>Let's Connect</h3>
+            <p>I'm always interested in hearing about new projects and opportunities. Whether you're looking to build something from scratch, redesign an existing product, or collaborate on a challenging problem — let's talk. I'd love to hear about your vision and how I can help bring it to life.</p>
+          </div>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-info-text">
+                <span class="contact-info-label">Email</span>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kareenatandan477@gmail.com" class="contact-info-value" style="text-decoration:none;color:inherit">kareenatandan477@gmail.com</a>
+              </div>
+            </div>
+            <a href="https://wa.me/977974639911" class="contact-info-item" title="Chat on WhatsApp" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
+              <div class="contact-info-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div class="contact-info-text">
+                <span class="contact-info-label">WhatsApp</span>
+                <span class="contact-info-value">+977-974639911</span>
+              </div>
+            </a>
+          </div>
+
+          <div>
+            <p class="contact-socials-label">Other Ways to Connect</p>
+            <div class="contact-socials-grid">
+              <a href="https://www.linkedin.com/in/karina-tandan-47b593317" class="social-card" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <div class="social-card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <p class="social-card-name">LinkedIn</p>
+                <span class="social-card-action">Connect &rarr;</span>
+              </a>
+              <a href="https://github.com/" class="social-card" title="GitHub" target="_blank" rel="noopener noreferrer">
+                <div class="social-card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </div>
+                <p class="social-card-name">GitHub</p>
+                <span class="social-card-action">View Code &rarr;</span>
+              </a>
+              <a href="https://www.instagram.com/karrinnaa.__/" class="social-card" title="Instagram" target="_blank" rel="noopener noreferrer">
+                <div class="social-card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z"/></svg>
+                </div>
+                <p class="social-card-name">Instagram</p>
+                <span class="social-card-action">Follow &rarr;</span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <!-- 1-Click Copy Box -->
-        <div class="email-copy-box">
-          <p class="email-text">kareenatandan477@gmail.com</p>
-          <button type="button" class="copy-btn" id="copy-email-btn" aria-label="Copy email address to clipboard">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            <span id="copy-text">Copy Email</span>
-          </button>
+        <!-- Right Column: Contact Form -->
+        <div class="contact-form-card" id="tilt-card">
+          <div class="contact-form-header">
+            <h3>Send Me a Message</h3>
+            <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+          </div>
+
+          <form id="contact-form" action="https://formspree.io/f/mkodkvpn" method="POST" novalidate>
+            <div class="form-group">
+              <label for="cf-name">Full Name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your full name" required autocomplete="name" aria-required="true">
+              <p class="form-error-msg" id="cf-name-error" role="alert">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                Please enter your name
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-email">Email Address <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="cf-email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email" aria-required="true">
+              <p class="form-error-msg" id="cf-email-error" role="alert">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                Please enter a valid email address
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-subject">Subject <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="cf-subject" name="subject" class="form-input" placeholder="What is this about?" required aria-required="true">
+              <p class="form-error-msg" id="cf-subject-error" role="alert">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                Please enter a subject
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-message">Message <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="cf-message" name="message" class="form-textarea" placeholder="Tell me about your project or question..." required rows="5" aria-required="true"></textarea>
+              <p class="form-error-msg" id="cf-message-error" role="alert">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                Please enter your message
+              </p>
+            </div>
+
+            <button type="submit" class="form-submit-btn" id="cf-submit">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+
+          <div class="form-message success" id="cf-success" role="status" aria-live="polite">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Message sent successfully! I'll get back to you soon.</span>
+          </div>
+          <div class="form-message error" id="cf-error-msg" role="alert" aria-live="assertive">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <span>Something went wrong. Please try again or email me directly.</span>
+          </div>
         </div>
 
-        <!-- Main CTA Button -->
-        <div class="button-row">
-          <a class="btn" id="mailto-btn" href="mailto:kareenatandan477@gmail.com?subject=Let's%20Connect" style="font-size:16px;padding:14px 28px">
-            ✉ Chat with Me
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Socials 3D Grid ===== -->
-    <section class="socials-section" data-animate="entry-scale">
-      <h3>Other Ways to Connect</h3>
-      <p>Follow my work or connect on professional networks</p>
-      
-      <div class="social-3d-grid">
-        <a href="#" class="social-3d-card" title="LinkedIn">
-          <div class="social-icon">in</div>
-          <p class="social-name">LinkedIn</p>
-          <span class="social-action">Connect →</span>
-        </a>
-
-        <a href="#" class="social-3d-card" title="GitHub">
-          <div class="social-icon">GH</div>
-          <p class="social-name">GitHub</p>
-          <span class="social-action">View Code →</span>
-        </a>
-
-        <a href="#" class="social-3d-card" title="Twitter">
-          <div class="social-icon">X</div>
-          <p class="social-name">Twitter</p>
-          <span class="social-action">Follow →</span>
-        </a>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <svg class="glyph" width="18" height="18" viewBox="0 0 24 24" aria-hidden><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1"/></svg>
-      <span>Contact — Karina Tandan</span>
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="footer-name">Karina Tandan</h3>
+          <p class="footer-tagline">UI/UX Designer &bull; Frontend Developer</p>
+          <p class="footer-desc">Creating intuitive, user-focused digital solutions that bridge the gap between customer needs and technology.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <nav aria-label="Footer navigation">
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="experience.html">Experience</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer-contact-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kareenatandan477@gmail.com">kareenatandan477@gmail.com</a>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Kathmandu,Nepal</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-social-col">
+          <h4 class="footer-col-title">Follow Me</h4>
+          <div class="footer-social-links">
+            <a href="https://www.linkedin.com/in/karina-tandan-47b593317" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="https://www.instagram.com/karrinnaa.__/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kareenatandan477@gmail.com" class="footer-social-link" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Karina Tandan. All Rights Reserved.</p>
+        <p>Built with HTML &bull; CSS &bull; JavaScript</p>
+      </div>
     </div>
   </footer>
 
@@ -321,44 +584,25 @@
   <script>
     // ===== Contact Page Interactions =====
     (function(){
+      "use strict";
+
       var emailAddress = 'kareenatandan477@gmail.com';
-      var mailtoBtn = document.getElementById('mailto-btn');
-      var copyBtn = document.getElementById('copy-email-btn');
-      var copyText = document.getElementById('copy-text');
       var pills = document.querySelectorAll('.icebreaker-pill');
 
-      // 1. Icebreaker topic buttons rewrite Mailto link
+      // ===== 1. Icebreaker topic buttons =====
+      var subjectInput = document.getElementById('cf-subject');
       pills.forEach(function(pill){
         pill.addEventListener('click', function(){
           pills.forEach(function(p){ p.classList.remove('active'); });
           pill.classList.add('active');
-
-          var subject = encodeURIComponent(pill.getAttribute('data-subject'));
-          var body = pill.getAttribute('data-body'); // Already encoded in HTML
-          
-          mailtoBtn.setAttribute('href', 'mailto:' + emailAddress + '?subject=' + subject + '&body=' + body);
+          if(subjectInput){
+            subjectInput.value = pill.getAttribute('data-subject');
+            clearFieldState(subjectInput.closest('.form-group'));
+          }
         });
       });
 
-      // 2. Interactive Copy to Clipboard
-      if(copyBtn){
-        copyBtn.addEventListener('click', function(){
-          navigator.clipboard.writeText(emailAddress).then(function(){
-            copyBtn.classList.add('copied');
-            copyText.textContent = '✔ Copied!';
-            
-            setTimeout(function(){
-              copyBtn.classList.remove('copied');
-              copyText.textContent = 'Copy Email';
-            }, 2500);
-          }).catch(function(){
-            // Fallback if clipboard API fails
-            copyText.textContent = 'Press Ctrl+C';
-          });
-        });
-      }
-
-      // 3. Subtle parallax on floating background shapes
+      // ===== 2. Parallax on floating shapes =====
       var shapes = document.querySelectorAll('.float-shape');
       if(shapes.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
         window.addEventListener('mousemove', function(e){
@@ -371,7 +615,7 @@
         });
       }
 
-      // 4. 3D Tilt Effect on Main Card
+      // ===== 3. 3D Tilt Effect on Form Card =====
       var tiltCard = document.getElementById('tilt-card');
       if(tiltCard && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
         tiltCard.addEventListener('mousemove', function(e){
@@ -385,8 +629,8 @@
         });
       }
 
-      // 5. 3D Tilt Effect on Social Cards
-      document.querySelectorAll('.social-3d-card').forEach(function(card){
+      // ===== 4. 3D Tilt on Social Cards =====
+      document.querySelectorAll('.social-card').forEach(function(card){
         if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
           card.addEventListener('mousemove', function(e){
             var r = card.getBoundingClientRect();
@@ -399,6 +643,124 @@
           });
         }
       });
+
+      // ===== 5. Contact Form — Validation & AJAX Submission =====
+      var form = document.getElementById('contact-form');
+      var submitBtn = document.getElementById('cf-submit');
+      var successMsg = document.getElementById('cf-success');
+      var errorMsg = document.getElementById('cf-error-msg');
+
+      function isValidEmail(email){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function clearFieldState(group){
+        group.classList.remove('has-error','has-success');
+      }
+
+      function setFieldError(group, msgEl){
+        group.classList.add('has-error');
+        group.classList.remove('has-success');
+      }
+
+      function setFieldSuccess(group){
+        group.classList.add('has-success');
+        group.classList.remove('has-error');
+      }
+
+      function validateField(input){
+        var group = input.closest('.form-group');
+        var val = input.value.trim();
+
+        if(!val){
+          setFieldError(group);
+          return false;
+        }
+
+        if(input.type === 'email' && !isValidEmail(val)){
+          setFieldError(group);
+          return false;
+        }
+
+        setFieldSuccess(group);
+        return true;
+      }
+
+      // Live validation on blur
+      var formInputs = form.querySelectorAll('.form-input, .form-textarea');
+      formInputs.forEach(function(input){
+        input.addEventListener('blur', function(){
+          validateField(input);
+        });
+        input.addEventListener('input', function(){
+          var group = input.closest('.form-group');
+          if(group.classList.contains('has-error')){
+            validateField(input);
+          }
+        });
+      });
+
+      // Form submission
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        // Hide previous messages
+        successMsg.classList.remove('visible');
+        errorMsg.classList.remove('visible');
+
+        // Validate all fields
+        var nameValid = validateField(document.getElementById('cf-name'));
+        var emailValid = validateField(document.getElementById('cf-email'));
+        var subjectValid = validateField(document.getElementById('cf-subject'));
+        var messageValid = validateField(document.getElementById('cf-message'));
+
+        if(!nameValid || !emailValid || !subjectValid || !messageValid){
+          // Focus the first invalid field
+          var firstError = form.querySelector('.has-error .form-input, .has-error .form-textarea');
+          if(firstError) firstError.focus();
+          return;
+        }
+
+        // Disable button, show loading state
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+
+        // Build form data for Formspree
+        var formData = {
+          name: document.getElementById('cf-name').value.trim(),
+          email: document.getElementById('cf-email').value.trim(),
+          subject: document.getElementById('cf-subject').value.trim(),
+          message: document.getElementById('cf-message').value.trim()
+        };
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        })
+        .then(function(response){
+          if(response.ok){
+            successMsg.classList.add('visible');
+            errorMsg.classList.remove('visible');
+            form.reset();
+            // Clear validation states
+            form.querySelectorAll('.form-group').forEach(function(g){
+              g.classList.remove('has-error','has-success');
+            });
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function(){
+          errorMsg.classList.add('visible');
+          successMsg.classList.remove('visible');
+        })
+        .finally(function(){
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('loading');
+        });
+      });
+
     })();
   </script>
 </body>
