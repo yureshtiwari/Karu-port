@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Explore the professional experience of Karina Tandan — from customer support to front-end development and team leadership." />
   <title>Experience — Karina Tandan</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230EA5E9'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Fraunces,serif' font-weight='700'>K</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230EA5E9'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Inconsolata,monospace' font-weight='700'>K</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
 
   <style>
@@ -14,7 +14,7 @@
 
     .exp-hero{text-align:center;padding:20px 20px 40px;position:relative}
     .exp-hero h1{
-      font-family:Fraunces,Georgia,serif;font-size:clamp(30px,5vw,48px);font-weight:700;
+      font-family:Inconsolata,monospace;font-size:clamp(30px,5vw,48px);font-weight:700;
       background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
       margin:0 0 10px;letter-spacing:-0.3px;line-height:1.15;
@@ -28,16 +28,20 @@
       display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
       margin:0 auto 48px;max-width:500px;position:relative;z-index:10;
     }
+    .filter-slider{
+      position:absolute;bottom:0;left:0;height:100%;
+      background:var(--color-accent);border-radius:6px;
+      z-index:0;pointer-events:none;
+      transition:left .35s cubic-bezier(.2,.9,.2,1),width .35s cubic-bezier(.2,.9,.2,1),background .25s ease;
+    }
     .filter-btn{
       padding:7px 18px;border-radius:6px;font-size:12px;font-weight:600;
       background:transparent;border:1px solid rgba(14,165,233,0.18);
       color:var(--color-text-body);cursor:pointer;letter-spacing:0.3px;
-      transition:all .25s ease;
+      transition:all .25s ease;position:relative;z-index:1;
     }
-    .filter-btn:hover{border-color:var(--color-accent);color:var(--color-accent)}
-    .filter-btn.on{
-      background:var(--color-accent);color:#fff;border-color:var(--color-accent);
-    }
+    .filter-btn:hover{border-color:var(--color-secondary);color:var(--color-secondary)}
+    .filter-btn.on{color:#fff;border-color:var(--color-accent)}
 
     .timeline{
       position:relative;
@@ -62,71 +66,19 @@
       transform:translateX(-50%);
     }
 
-    .timeline-planet{
+    .tl-diamond{
       position:absolute;
       left:50%;
       top:0;
-      width:44px;
-      height:44px;
-      transform:translate(-50%,-50%);
+      width:20px;
+      height:20px;
+      background:linear-gradient(135deg,var(--color-accent),var(--color-secondary));
+      transform:translate(-50%,-50%) rotate(45deg);
       z-index:20;
       pointer-events:none;
-      transition:top 0.08s linear;
-    }
-    .planet-body{
-      width:44px;
-      height:44px;
-      position:relative;
-    }
-    .planet-core{
-      position:absolute;
-      top:50%;left:50%;
-      width:14px;height:14px;
-      background:radial-gradient(circle at 35% 35%,#7dd3fc,var(--color-accent),#0369a1);
-      border-radius:50%;
-      transform:translate(-50%,-50%);
-      box-shadow:0 0 12px rgba(14,165,233,0.6),0 0 28px rgba(14,165,233,0.3),0 0 50px rgba(14,165,233,0.15);
-      animation:planetPulse 3s ease-in-out infinite;
-    }
-    @keyframes planetPulse{
-      0%,100%{box-shadow:0 0 12px rgba(14,165,233,0.6),0 0 28px rgba(14,165,233,0.3),0 0 50px rgba(14,165,233,0.15)}
-      50%{box-shadow:0 0 18px rgba(14,165,233,0.8),0 0 36px rgba(14,165,233,0.4),0 0 60px rgba(14,165,233,0.2)}
-    }
-
-    .planet-orbit{
-      position:absolute;
-      top:50%;left:50%;
-      width:36px;height:36px;
-      border:1.5px solid rgba(14,165,233,0.25);
-      border-radius:50%;
-      transform:translate(-50%,-50%) rotateX(65deg);
-      animation:orbitSpin 4s linear infinite;
-    }
-    @keyframes orbitSpin{
-      from{transform:translate(-50%,-50%) rotateX(65deg) rotateZ(0deg)}
-      to{transform:translate(-50%,-50%) rotateX(65deg) rotateZ(360deg)}
-    }
-
-    .planet-satellite{
-      position:absolute;
-      top:-3px;left:50%;
-      width:6px;height:6px;
-      background:#fff;
-      border-radius:50%;
-      transform:translateX(-50%);
-      box-shadow:0 0 6px rgba(255,255,255,0.8);
-    }
-
-    .planet-trail{
-      position:absolute;
-      top:50%;left:50%;
-      width:6px;
-      height:60px;
-      background:linear-gradient(to top,rgba(14,165,233,0.3),transparent);
       border-radius:3px;
-      transform:translate(-50%,0);
-      filter:blur(3px);
-      opacity:0.6;
+      box-shadow:0 0 16px rgba(14,165,233,0.5),0 0 36px rgba(14,165,233,0.2);
+      transition:top 0.08s linear;
     }
 
     .tl-item{
@@ -166,7 +118,7 @@
       background:linear-gradient(270deg,rgba(14,165,233,0.15),rgba(14,165,233,0.3));
     }
 
-    .tl-item.hid{display:none}
+    .tl-item.hid{display:none!important}
 
     .tl-item::after{
       content:"";
@@ -193,16 +145,16 @@
       transition:background .3s ease,box-shadow .3s ease;
     }
     .tl-dot[data-cat="support"]{
-      background:var(--color-secondary);
-      box-shadow:0 0 0 2px rgba(6,182,212,0.25);
+      background:var(--color-cat-support);
+      box-shadow:0 0 0 2px rgba(124,58,237,0.25);
     }
     .tl-dot[data-cat="development"]{
-      background:var(--color-accent);
-      box-shadow:0 0 0 2px rgba(14,165,233,0.25);
+      background:var(--color-cat-dev);
+      box-shadow:0 0 0 2px rgba(4,120,87,0.25);
     }
     .tl-dot[data-cat="leadership"]{
-      background:var(--color-accent-2);
-      box-shadow:0 0 0 2px rgba(236,72,153,0.25);
+      background:var(--color-cat-lead);
+      box-shadow:0 0 0 2px rgba(146,64,14,0.25);
     }
 
     .tl-card{
@@ -215,8 +167,13 @@
     .tl-card:hover{
       border-color:rgba(14,165,233,0.25);
       box-shadow:0 4px 8px rgba(14,165,233,0.06),0 12px 28px rgba(14,165,233,0.1),0 32px 64px rgba(14,165,233,0.14),0 0 48px rgba(14,165,233,0.06);
-      transform:translateY(-2px);
+      transform:translateY(-4px);
     }
+
+    /* Stagger timeline reveals */
+    .tl-item:nth-child(2){transition-delay:0.08s}
+    .tl-item:nth-child(3){transition-delay:0.16s}
+    .tl-item:nth-child(4){transition-delay:0.24s}
 
     .tl-header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
     .tl-role-icon{
@@ -226,38 +183,38 @@
     }
     .tl-role-icon svg{width:16px;height:16px}
     .tl-role-icon[data-cat="support"]{
-      background:rgba(6,182,212,0.12);
-      color:var(--color-secondary);
+      background:rgba(124,58,237,0.12);
+      color:var(--color-cat-support);
     }
     .tl-role-icon[data-cat="development"]{
-      background:rgba(14,165,233,0.12);
-      color:var(--color-accent);
+      background:rgba(4,120,87,0.12);
+      color:var(--color-cat-dev);
     }
     .tl-role-icon[data-cat="leadership"]{
-      background:rgba(236,72,153,0.12);
-      color:var(--color-accent-2);
+      background:rgba(146,64,14,0.12);
+      color:var(--color-cat-lead);
     }
     .tl-role-wrap{flex:1}
-    .tl-role{font-family:Fraunces,serif;font-size:22px;font-weight:700;color:var(--color-text-heading);margin:0;display:inline}
+    .tl-role{font-family:Inconsolata,monospace;font-size:22px;font-weight:700;color:var(--color-text-heading);margin:0;display:inline}
     .tl-tag{
       font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;
       padding:5px 14px;border-radius:20px;
       border:1px solid;white-space:nowrap;
     }
     .tl-tag[data-cat="support"]{
-      color:var(--color-secondary);
-      background:rgba(6,182,212,0.1);
-      border-color:rgba(6,182,212,0.2);
+      color:var(--color-cat-support);
+      background:rgba(124,58,237,0.1);
+      border-color:rgba(124,58,237,0.2);
     }
     .tl-tag[data-cat="development"]{
-      color:var(--color-accent-dark);
-      background:rgba(14,165,233,0.1);
-      border-color:rgba(14,165,233,0.2);
+      color:var(--color-cat-dev);
+      background:rgba(4,120,87,0.1);
+      border-color:rgba(4,120,87,0.2);
     }
     .tl-tag[data-cat="leadership"]{
-      color:#DB2777;
-      background:rgba(236,72,153,0.1);
-      border-color:rgba(236,72,153,0.2);
+      color:var(--color-cat-lead);
+      background:rgba(146,64,14,0.1);
+      border-color:rgba(146,64,14,0.2);
     }
     .tl-company{font-size:14px;color:var(--color-secondary);font-weight:600;margin:0 0 14px}
     .tl-body{font-size:15px;line-height:1.8;color:var(--color-text-body);margin:0 0 18px}
@@ -278,7 +235,7 @@
       text-align:center;
     }
     .tl-stat-value{
-      font-family:Fraunces,serif;
+      font-family:Inconsolata,monospace;
       font-size:24px;
       font-weight:700;
       color:var(--color-text-heading);
@@ -303,24 +260,24 @@
       text-align:center;margin:60px auto 40px;padding:44px 24px;
       border:1.5px solid rgba(14,165,233,0.15);border-radius:20px;
       max-width:760px;
-      background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(236,72,153,0.04));
+      background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(225,29,72,0.04));
     }
-    .exp-cta h3{font-family:Fraunces,serif;font-size:22px;font-weight:700;color:var(--color-text-heading);margin:0 0 12px}
+    .exp-cta h3{font-family:Inconsolata,monospace;font-size:22px;font-weight:700;color:var(--color-text-heading);margin:0 0 12px}
     .exp-cta p{font-size:15px;color:var(--color-text-body);margin:0 0 20px;line-height:1.6}
 
     .filter-btn[data-filter="support"].on{
-      background:var(--color-secondary);
-      border-color:var(--color-secondary);
+      background:var(--color-cat-support);
+      border-color:var(--color-cat-support);
       color:#fff;
     }
     .filter-btn[data-filter="development"].on{
-      background:var(--color-accent);
-      border-color:var(--color-accent);
+      background:var(--color-cat-dev);
+      border-color:var(--color-cat-dev);
       color:#fff;
     }
     .filter-btn[data-filter="leadership"].on{
-      background:var(--color-accent-2);
-      border-color:var(--color-accent-2);
+      background:var(--color-cat-lead);
+      border-color:var(--color-cat-lead);
       color:#fff;
     }
 
@@ -358,10 +315,7 @@
       .tl-stats{gap:8px}
       .tl-stat{padding:12px}
       .tl-stat-value{font-size:20px}
-      .planet-body{width:32px;height:32px}
-      .planet-core{width:10px;height:10px}
-      .planet-orbit{width:28px;height:28px}
-      .timeline-planet{width:32px;height:32px}
+      .tl-diamond{left:24px;width:16px;height:16px}
     }
     @media(max-width:480px){
       .tl-card{padding:20px 16px;border-radius:16px}
@@ -373,9 +327,7 @@
     }
     @media(prefers-reduced-motion:reduce){
       .tl-item{transition:none!important;opacity:1!important;transform:none!important}
-      .timeline-planet{transition:none!important}
-      .planet-core{animation:none!important}
-      .planet-orbit{animation:none!important}
+      .tl-diamond{display:none}
     }
   </style>
 </head>
@@ -383,11 +335,26 @@
   <header class="site-header">
     <nav class="capsule-nav" aria-label="Primary">
       <div class="nav-inner">
-        <a href="index.html" class="nav-link" title="Home">Home</a>
-        <a href="about.html" class="nav-link" title="About">About</a>
-        <a href="experience.html" class="nav-link active" aria-current="page" title="Experience">Experience</a>
-        <a href="projects.html" class="nav-link" title="Projects">Projects</a>
-        <a href="contact.html" class="nav-link" title="Contact">Contact</a>
+        <a href="index.html" class="nav-link" title="Home">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+  <span class="nav-label">Home</span>
+</a>
+        <a href="about.html" class="nav-link" title="About">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+  <span class="nav-label">About</span>
+</a>
+        <a href="experience.html" class="nav-link active" aria-current="page" title="Experience">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+  <span class="nav-label">Experience</span>
+</a>
+        <a href="projects.html" class="nav-link" title="Projects">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+  <span class="nav-label">Projects</span>
+</a>
+        <a href="contact.html" class="nav-link" title="Contact">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+  <span class="nav-label">Contact</span>
+</a>
       </div>
     </nav>
   </header>
@@ -400,6 +367,7 @@
     </section>
 
     <div class="filter-bar" data-animate="entry-scale" role="group" aria-label="Filter experiences">
+      <div class="filter-slider" aria-hidden="true"></div>
       <button class="filter-btn on" data-filter="all">All</button>
       <button class="filter-btn" data-filter="support">Support</button>
       <button class="filter-btn" data-filter="development">Development</button>
@@ -408,55 +376,9 @@
 
     <div class="timeline" id="timeline">
 
-      <div class="timeline-planet" id="timelinePlanet" aria-hidden="true">
-        <div class="planet-body">
-          <div class="planet-trail"></div>
-          <div class="planet-orbit">
-            <div class="planet-satellite"></div>
-          </div>
-          <div class="planet-core"></div>
-        </div>
-      </div>
+      <div class="tl-diamond" id="tlDiamond" aria-hidden="true"></div>
 
-      <article class="tl-item tl-left" data-cat="support">
-
-        <div class="tl-card">
-          <div class="tl-header">
-            <span class="tl-role-icon" data-cat="support" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </span>
-            <div class="tl-role-wrap">
-              <h3 class="tl-role">Customer Support Representative</h3>
-            </div>
-            <span class="tl-tag" data-cat="support">Support</span>
-          </div>
-          <p class="tl-company">Foundational role — user empathy & product insight</p>
-          <p class="tl-body">Worked directly with customers to resolve issues, collected feedback that informed product improvements, and collaborated with engineering and product teams to prioritize fixes. Learned to listen first, then design solutions that address real pain points.</p>
-          <div class="tl-stats">
-            <div class="tl-stat">
-              <div class="tl-stat-value">100+</div>
-              <div class="tl-stat-label">Daily Tickets</div>
-            </div>
-            <div class="tl-stat">
-              <div class="tl-stat-value">95%</div>
-              <div class="tl-stat-label">First-Contact Resolution</div>
-            </div>
-            <div class="tl-stat">
-              <div class="tl-stat-value">40%</div>
-              <div class="tl-stat-label">Faster Response Time</div>
-            </div>
-          </div>
-          <ul class="tl-points">
-            <li>Identified feedback patterns leading to 12 product improvements</li>
-            <li>Trained 8 new hires on support best practices</li>
-          </ul>
-        </div>
-        <div class="tl-dot" data-cat="support"></div>
-      </article>
-
-      <article class="tl-item tl-right" data-cat="development">
+      <article class="tl-item tl-left" data-cat="development">
 
         <div class="tl-dot" data-cat="development"></div>
         <div class="tl-card">
@@ -494,8 +416,9 @@
         </div>
       </article>
 
-      <article class="tl-item tl-left" data-cat="leadership">
+      <article class="tl-item tl-right" data-cat="leadership">
 
+        <div class="tl-dot" data-cat="leadership"></div>
         <div class="tl-card">
           <div class="tl-header">
             <span class="tl-role-icon" data-cat="leadership" aria-hidden="true">
@@ -531,7 +454,44 @@
             <li>Mentored 6 team members — 2 earned internal promotions</li>
           </ul>
         </div>
-        <div class="tl-dot" data-cat="leadership"></div>
+      </article>
+
+      <article class="tl-item tl-left" data-cat="support">
+
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-role-icon" data-cat="support" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <div class="tl-role-wrap">
+              <h3 class="tl-role">Customer Support Representative</h3>
+            </div>
+            <span class="tl-tag" data-cat="support">Support</span>
+          </div>
+          <p class="tl-company">Foundational role — user empathy & product insight</p>
+          <p class="tl-body">Worked directly with customers to resolve issues, collected feedback that informed product improvements, and collaborated with engineering and product teams to prioritize fixes. Learned to listen first, then design solutions that address real pain points.</p>
+          <div class="tl-stats">
+            <div class="tl-stat">
+              <div class="tl-stat-value">100+</div>
+              <div class="tl-stat-label">Daily Tickets</div>
+            </div>
+            <div class="tl-stat">
+              <div class="tl-stat-value">95%</div>
+              <div class="tl-stat-label">First-Contact Resolution</div>
+            </div>
+            <div class="tl-stat">
+              <div class="tl-stat-value">40%</div>
+              <div class="tl-stat-label">Faster Response Time</div>
+            </div>
+          </div>
+          <ul class="tl-points">
+            <li>Identified feedback patterns leading to 12 product improvements</li>
+            <li>Trained 8 new hires on support best practices</li>
+          </ul>
+        </div>
+        <div class="tl-dot" data-cat="support"></div>
       </article>
 
     </div>
@@ -616,7 +576,7 @@
     var reducedMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     var isMobile=window.matchMedia('(max-width:768px)').matches;
     var timeline=document.getElementById('timeline');
-    var planet=document.getElementById('timelinePlanet');
+    var diamond=document.getElementById('tlDiamond');
     var allCards=document.querySelectorAll('.tl-item');
 
     var observer=new IntersectionObserver(function(entries){
@@ -633,48 +593,83 @@
 
     var ticking=false;
 
-    function movePlanet(){
+    function moveDiamond(){
       ticking=false;
-      if(!timeline||!planet||reducedMotion)return;
+      if(!timeline||!diamond||reducedMotion)return;
+
+      var items=timeline.querySelectorAll('.tl-item:not(.hid)');
+      if(!items.length)return;
 
       var tRect=timeline.getBoundingClientRect();
       var tTop=tRect.top+window.pageYOffset;
-      var tHeight=tRect.height;
       var winH=window.innerHeight;
       var scrolled=window.pageYOffset;
-      var start=tTop-winH*0.6;
-      var end=tTop+tHeight-winH*0.4;
 
-      if(scrolled<start){
-        planet.style.top='0px';
+      var cardPositions=[];
+      items.forEach(function(item){
+        var dot=item.querySelector('.tl-dot');
+        if(!dot)return;
+        var dotRect=dot.getBoundingClientRect();
+        var dotY=dotRect.top+window.pageYOffset-tTop+dotRect.height/2;
+        var itemRect=item.getBoundingClientRect();
+        var itemCenter=itemRect.top+window.pageYOffset+itemRect.height/2;
+        var scrollAtCenter=itemCenter-winH/2;
+        cardPositions.push({dotY:dotY,scrollAtCenter:scrollAtCenter});
+      });
+
+      if(!cardPositions.length)return;
+
+      if(scrolled<=cardPositions[0].scrollAtCenter){
+        diamond.style.top=cardPositions[0].dotY+'px';
         return;
       }
-      if(scrolled>end){
-        planet.style.top=tHeight+'px';
+      if(scrolled>=cardPositions[cardPositions.length-1].scrollAtCenter){
+        diamond.style.top=cardPositions[cardPositions.length-1].dotY+'px';
         return;
       }
 
-      var progress=(scrolled-start)/(end-start);
-      progress=Math.max(0,Math.min(1,progress));
-      var yPos=progress*tHeight;
-      planet.style.top=yPos+'px';
+      for(var i=0;i<cardPositions.length-1;i++){
+        var curr=cardPositions[i];
+        var next=cardPositions[i+1];
+        if(scrolled>=curr.scrollAtCenter&&scrolled<next.scrollAtCenter){
+          var progress=(scrolled-curr.scrollAtCenter)/(next.scrollAtCenter-curr.scrollAtCenter);
+          var yPos=curr.dotY+progress*(next.dotY-curr.dotY);
+          diamond.style.top=yPos+'px';
+          return;
+        }
+      }
     }
 
     function onScroll(){
       if(reducedMotion)return;
       if(!ticking){
-        requestAnimationFrame(movePlanet);
+        requestAnimationFrame(moveDiamond);
         ticking=true;
       }
     }
 
     window.addEventListener('scroll',onScroll,{passive:true});
+    moveDiamond();
 
     var btns=document.querySelectorAll('.filter-btn');
+    var filterSlider=document.querySelector('.filter-slider');
+    function moveSlider(b){
+      if(!filterSlider||!b)return;
+      var barRect=document.querySelector('.filter-bar').getBoundingClientRect();
+      var btnRect=b.getBoundingClientRect();
+      filterSlider.style.left=(btnRect.left-barRect.left)+'px';
+      filterSlider.style.width=btnRect.width+'px';
+      var f=b.getAttribute('data-filter');
+      if(f==='support')filterSlider.style.background='var(--color-cat-support)';
+      else if(f==='development')filterSlider.style.background='var(--color-cat-dev)';
+      else if(f==='leadership')filterSlider.style.background='var(--color-cat-lead)';
+      else filterSlider.style.background='var(--color-accent)';
+    }
     btns.forEach(function(b){
       b.addEventListener('click',function(){
         btns.forEach(function(x){x.classList.remove('on')});
         b.classList.add('on');
+        moveSlider(b);
         var f=b.getAttribute('data-filter');
         allCards.forEach(function(it){
           if(f==='all'||it.getAttribute('data-cat')===f){
@@ -685,9 +680,10 @@
             it.classList.remove('is-visible');
           }
         });
-        movePlanet();
+        moveDiamond();
       });
     });
+    moveSlider(document.querySelector('.filter-btn.on'));
 
     var cards=document.querySelectorAll('.tl-card');
     cards.forEach(function(card){
@@ -712,11 +708,41 @@
       clearTimeout(resizeTimer);
       resizeTimer=setTimeout(function(){
         isMobile=window.matchMedia('(max-width:768px)').matches;
-        movePlanet();
+        moveDiamond();
       },200);
     });
 
-    movePlanet();
+    var statValues=document.querySelectorAll('.tl-stat-value');
+    var counted=new WeakSet();
+    var statObserver=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting||counted.has(e.target))return;
+        counted.add(e.target);
+        var el=e.target;
+        var txt=el.textContent.trim();
+        var match=txt.match(/^([\d.]+)(.*)$/);
+        if(!match)return;
+        var target=parseFloat(match[1]);
+        var suffix=match[2];
+        if(reducedMotion){
+          el.textContent=txt;
+          return;
+        }
+        var duration=1200;
+        var start=performance.now();
+        function tick(now){
+          var elapsed=now-start;
+          var progress=Math.min(elapsed/duration,1);
+          var eased=1-Math.pow(1-progress,3);
+          var current=target*eased;
+          var display=current%1===0?current.toFixed(0):current.toFixed(1);
+          el.textContent=display+suffix;
+          if(progress<1)requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    },{threshold:0.5});
+    statValues.forEach(function(el){statObserver.observe(el)});
   })();
   </script>
 </body>

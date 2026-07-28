@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Learn about Karina Tandan — a UI/UX Designer and Front-End Developer. Discover her journey from customer service to design and development." />
   <title>About — Karina Tandan</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230EA5E9'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Fraunces,serif' font-weight='700'>K</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230EA5E9'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Inconsolata,monospace' font-weight='700'>K</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
 
   <style>
@@ -22,7 +22,7 @@
     }
     .float-shape{
       position:absolute;border-radius:50%;
-      background:linear-gradient(135deg,rgba(14,165,233,0.18),rgba(236,72,153,0.15));
+      background:linear-gradient(135deg,rgba(14,165,233,0.18),rgba(225,29,72,0.12));
       filter:blur(2px);
       animation:floatY 8s ease-in-out infinite;
       will-change:transform;
@@ -32,7 +32,7 @@
       background:linear-gradient(135deg,rgba(245,158,11,0.22),rgba(6,182,212,0.18))}
     .float-shape.s3{width:90px;height:90px;bottom:12%;left:15%;animation-delay:3s}
     .float-shape.s4{width:50px;height:50px;bottom:22%;right:18%;animation-delay:2s;
-      background:linear-gradient(135deg,rgba(236,72,153,0.22),rgba(14,165,233,0.18))}
+      background:linear-gradient(135deg,rgba(225,29,72,0.18),rgba(14,165,233,0.18))}
 
     @keyframes floatY{
       0%,100%{transform:translateY(0) rotate(0deg)}
@@ -52,16 +52,16 @@
       animation:spin 18s linear infinite;
     }
     .avatar-orb::after{
-      inset:-24px;border:1px dashed rgba(236,72,153,0.35);
+      inset:-24px;border:1px dashed rgba(225,29,72,0.35);
       animation:spin 26s linear infinite reverse;
     }
     @keyframes spin{to{transform:rotate(360deg)}}
 
     .orb-core{
       width:100%;height:100%;border-radius:50%;
-      background:linear-gradient(135deg,#0EA5E9,#06B6D4 50%,#EC4899);
+      background:linear-gradient(135deg,#0EA5E9,#06B6D4 50%,var(--color-accent-warm));
       display:flex;align-items:center;justify-content:center;
-      color:#fff;font-family:Fraunces,serif;font-weight:700;font-size:52px;
+      color:#fff;font-family:Inconsolata,monospace;font-weight:700;font-size:52px;
       box-shadow:0 20px 45px rgba(14,165,233,0.35);
       transition:transform .4s cubic-bezier(.2,.9,.2,1);
     }
@@ -82,9 +82,12 @@
       position:relative;display:grid;grid-template-columns:repeat(3,1fr);
       gap:24px;padding:40px 0 20px;
     }
+    .journey-track > .milestone:nth-child(1){transition-delay:0.05s}
+    .journey-track > .milestone:nth-child(2){transition-delay:0.1s}
+    .journey-track > .milestone:nth-child(3){transition-delay:0.15s}
     .journey-track::before{
       content:"";position:absolute;top:60px;left:8%;right:8%;height:3px;
-      background:linear-gradient(90deg,#0EA5E9,#06B6D4,#EC4899);
+      background:linear-gradient(90deg,#0EA5E9,#06B6D4,var(--color-accent-warm));
       border-radius:3px;opacity:0.35;z-index:0;
     }
 
@@ -94,7 +97,7 @@
       border:1.5px solid rgba(14,165,233,0.18);
       border-radius:16px;padding:28px 22px 22px;
       text-align:center;cursor:pointer;
-      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .3s ease,border-color .3s ease;
+      transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .3s ease,border-color .3s ease,opacity .6s ease;
       transform-style:preserve-3d;
       box-shadow:0 10px 28px rgba(15,23,42,0.06);
     }
@@ -111,13 +114,13 @@
 
     .milestone-dot{
       width:44px;height:44px;border-radius:50%;
-      background:linear-gradient(135deg,#0EA5E9,#EC4899);
+      background:linear-gradient(135deg,#0EA5E9,var(--color-accent-warm));
       color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;
       margin:-46px auto 14px;box-shadow:0 8px 20px rgba(14,165,233,0.4);
-      border:4px solid #fff;font-family:Fraunces,serif;font-size:18px;
+      border:4px solid #fff;font-family:Inconsolata,monospace;font-size:18px;
     }
     .milestone h4{
-      font-family:Fraunces,serif;color:var(--color-text-heading);
+      font-family:Inconsolata,monospace;color:var(--color-text-heading);
       font-size:17px;margin:0 0 4px;
     }
     .milestone .m-tag{
@@ -131,8 +134,8 @@
 
     .chapter-panel{
       margin-top:28px;
-      background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(236,72,153,0.05));
-      border-left:4px solid var(--color-accent);
+      background:linear-gradient(135deg,rgba(225,29,72,0.06),rgba(225,29,72,0.04));
+      border-left:4px solid var(--color-accent-warm);
       border-radius:12px;padding:0 28px;
       max-height:0;overflow:hidden;opacity:0;
       transition:max-height .5s ease,padding .5s ease,opacity .4s ease;
@@ -159,14 +162,19 @@
       display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
       perspective:1200px;
     }
+    .skill-grid > .skill-card:nth-child(1){transition-delay:0.05s}
+    .skill-grid > .skill-card:nth-child(2){transition-delay:0.1s}
+    .skill-grid > .skill-card:nth-child(3){transition-delay:0.15s}
+    .skill-grid > .skill-card:nth-child(4){transition-delay:0.2s}
     .skill-card{
       position:relative;height:190px;
       transform-style:preserve-3d;
-      transition:transform .7s cubic-bezier(.2,.9,.2,1);
+      transition:transform .7s cubic-bezier(.2,.9,.2,1),box-shadow .25s ease,border-color .25s ease;
       cursor:pointer;
       touch-action: manipulation;
     }
     .skill-card.flipped{transform:rotateY(180deg)}
+    .skill-card:hover .skill-face{box-shadow:0 16px 40px rgba(14,165,233,0.15);border-color:rgba(14,165,233,0.35)}
 
     .skill-face{
       position:absolute;inset:0;
@@ -188,7 +196,7 @@
       box-shadow:0 8px 20px rgba(14,165,233,0.35);
     }
     .skill-front h5{
-      font-family:Fraunces,serif;color:var(--color-text-heading);
+      font-family:Inconsolata,monospace;color:var(--color-text-heading);
       font-size:19px;margin:0 0 6px;
     }
     .skill-front .flip-hint{
@@ -197,12 +205,12 @@
       margin-top:auto;
     }
     .skill-back{
-      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 60%,#EC4899 100%);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 60%,var(--color-accent-warm) 100%);
       color:#fff;transform:rotateY(180deg);
       border-color:transparent;
     }
     .skill-back h5{
-      font-family:Fraunces,serif;color:#fff;
+      font-family:Inconsolata,monospace;color:#fff;
       font-size:17px;margin:0 0 10px;
     }
     .skill-back p{
@@ -212,12 +220,12 @@
 
     .about-cta{
       text-align:center;margin-top:72px;padding:40px 20px;
-      background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(236,72,153,0.06));
+      background:linear-gradient(135deg,rgba(225,29,72,0.06),rgba(14,165,233,0.06));
       border-radius:20px;
       border:1.5px solid rgba(14,165,233,0.15);
     }
     .about-cta h3{
-      font-family:Fraunces,serif;color:var(--color-text-heading);
+      font-family:Inconsolata,monospace;color:var(--color-text-heading);
       font-size:26px;margin-bottom:8px;
     }
     .about-cta p{color:var(--color-text-body);margin-bottom:20px}
@@ -226,7 +234,7 @@
       .journey-track{grid-template-columns:1fr;gap:40px}
       .journey-track::before{
         top:0;bottom:0;left:50%;right:auto;width:3px;height:auto;
-        background:linear-gradient(180deg,#0EA5E9,#06B6D4,#EC4899);
+        background:linear-gradient(180deg,#0EA5E9,#06B6D4,var(--color-accent-warm));
       }
       .skill-grid{grid-template-columns:1fr}
       .skill-card{height:200px}
@@ -242,11 +250,26 @@
   <header class="site-header">
     <nav class="capsule-nav" aria-label="Primary">
       <div class="nav-inner">
-        <a href="index.html" class="nav-link" title="Home">Home</a>
-        <a href="about.html" class="nav-link active" aria-current="page" title="About">About</a>
-        <a href="experience.html" class="nav-link" title="Experience">Experience</a>
-        <a href="projects.html" class="nav-link" title="Projects">Projects</a>
-        <a href="contact.html" class="nav-link" title="Contact">Contact</a>
+        <a href="index.html" class="nav-link" title="Home">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+  <span class="nav-label">Home</span>
+</a>
+        <a href="about.html" class="nav-link active" aria-current="page" title="About">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+  <span class="nav-label">About</span>
+</a>
+        <a href="experience.html" class="nav-link" title="Experience">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+  <span class="nav-label">Experience</span>
+</a>
+        <a href="projects.html" class="nav-link" title="Projects">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+  <span class="nav-label">Projects</span>
+</a>
+        <a href="contact.html" class="nav-link" title="Contact">
+  <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+  <span class="nav-label">Contact</span>
+</a>
       </div>
     </nav>
   </header>
@@ -272,21 +295,21 @@
 
     <section class="journey" data-animate="entry-scale" aria-label="My journey">
       <div class="journey-track">
-        <div class="milestone" data-chapter="1" tabindex="0" role="button" aria-expanded="false">
+        <div class="milestone" data-animate="entry-scale" data-chapter="1" tabindex="0" role="button" aria-expanded="false">
           <div class="milestone-dot">01</div>
           <span class="m-tag">The Foundation</span>
           <h4>Customer Service</h4>
           <p class="hint">Click to read</p>
         </div>
 
-        <div class="milestone" data-chapter="2" tabindex="0" role="button" aria-expanded="false">
+        <div class="milestone" data-animate="entry-scale" data-chapter="2" tabindex="0" role="button" aria-expanded="false">
           <div class="milestone-dot">02</div>
           <span class="m-tag">The Study</span>
           <h4>Computer Science</h4>
           <p class="hint">Click to read</p>
         </div>
 
-        <div class="milestone" data-chapter="3" tabindex="0" role="button" aria-expanded="false">
+        <div class="milestone" data-animate="entry-scale" data-chapter="3" tabindex="0" role="button" aria-expanded="false">
           <div class="milestone-dot">03</div>
           <span class="m-tag">The Craft</span>
           <h4>Design &amp; Dev</h4>
@@ -308,7 +331,7 @@
       </div>
 
       <div class="skill-grid">
-        <div class="skill-card" tabindex="0" role="button" aria-label="Frontend Development">
+        <div class="skill-card" data-animate="entry-scale" tabindex="0" role="button" aria-label="Frontend Development">
           <div class="skill-face skill-front">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -322,7 +345,7 @@
           </div>
         </div>
 
-        <div class="skill-card" tabindex="0" role="button" aria-label="UI/UX Design">
+        <div class="skill-card" data-animate="entry-scale" tabindex="0" role="button" aria-label="UI/UX Design">
           <div class="skill-face skill-front">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20"/><path d="M2 12h20"/></svg>
@@ -336,7 +359,7 @@
           </div>
         </div>
 
-        <div class="skill-card" tabindex="0" role="button" aria-label="Data-Driven Insights">
+        <div class="skill-card" data-animate="entry-scale" tabindex="0" role="button" aria-label="Data-Driven Insights">
           <div class="skill-face skill-front">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
@@ -350,7 +373,7 @@
           </div>
         </div>
 
-        <div class="skill-card" tabindex="0" role="button" aria-label="Team Leadership">
+        <div class="skill-card" data-animate="entry-scale" tabindex="0" role="button" aria-label="Team Leadership">
           <div class="skill-face skill-front">
             <div class="skill-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>

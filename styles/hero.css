@@ -8,7 +8,7 @@
   --hero-bg: linear-gradient(135deg, #F0F9FF 0%, #F5FAFF 50%, #FEF9F3 100%);
   --hero-accent: #0EA5E9;
   --hero-secondary: #06B6D4;
-  --hero-pink: #EC4899;
+  --hero-pink: #E11D48;
   --hero-amber: #F59E0B;
   --hero-text-heading: #0F172A;
   --hero-text-body: #475569;
@@ -67,7 +67,7 @@
   height: 450px;
   bottom: -10%;
   left: -8%;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(225, 29, 72, 0.08) 0%, transparent 70%);
   animation: heroGlowFloat 18s ease-in-out infinite reverse;
 }
 
@@ -156,7 +156,7 @@
 
 /* Main heading */
 .hero-name {
-  font-family: Fraunces, Georgia, serif;
+  font-family: Inconsolata, monospace;
   font-size: clamp(38px, 5vw, 62px);
   font-weight: 700;
   color: var(--hero-text-heading);
@@ -539,10 +539,16 @@
 
 @media (max-width: 1024px) {
   .hero-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     gap: 50px;
     padding: 120px 0 40px;
+  }
+
+  .hero-visual {
+    order: -1;
+    justify-content: center;
   }
 
   .hero-content {
@@ -564,10 +570,6 @@
   }
 
   .hero-cta-group {
-    justify-content: center;
-  }
-
-  .hero-visual {
     justify-content: center;
   }
 }
