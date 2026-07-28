@@ -80,19 +80,6 @@
   }
   randomiseBadgeDelays();
 
-  /* ---------- Smooth Scroll for Anchor Links in Hero ---------- */
-  document.querySelectorAll(".hero-section a[href^='#']").forEach(function (a) {
-    a.addEventListener("click", function (e) {
-      var id = a.getAttribute("href");
-      if (!id || id === "#") return;
-      var target = document.querySelector(id);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
-
   /* ---------- Parallax Glows on Scroll ---------- */
   var glows = document.querySelectorAll(".hero-glow");
   var ticking = false;
