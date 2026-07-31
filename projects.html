@@ -43,19 +43,19 @@
 
     .proj-title{
       font-size:clamp(32px,5vw,52px);
-      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#F8FAFC 100%);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
       letter-spacing:-0.5px;margin-bottom:12px;
     }
-    .proj-sub{color:var(--color-text-body);font-size:16px;margin-bottom:0}
+    .proj-sub{color:#CBD5E1;font-size:16px;margin-bottom:0}
 
     .filter-section{
       position:relative;z-index:1;max-width:680px;margin:10px auto 40px;text-align:center;
     }
-    .filter-label{font-size:12px;color:var(--color-text-body);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;opacity:0.8}
+    .filter-label{font-size:12px;color:#CBD5E1;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;opacity:0.8}
     .filter-grid{
       display:inline-flex;flex-wrap:wrap;justify-content:center;gap:8px;
-      background:rgba(255,255,255,0.7);padding:6px;border-radius:30px;
+      background:var(--color-card);padding:6px;border-radius:30px;
       border:1px solid rgba(14,165,233,0.2);box-shadow:0 4px 15px rgba(15,23,42,0.04);
     }
     .filter-pill{
@@ -109,7 +109,7 @@
     }
 
     .project-card-3d{
-      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      background:var(--color-card);
       border:1.5px solid rgba(14,165,233,0.18);
       border-radius:24px;
       padding:36px 40px;
@@ -124,7 +124,7 @@
       transform:translateY(-4px);
       box-shadow:0 28px 65px rgba(14,165,233,0.16);
       border-color:rgba(14,165,233,0.35);
-      background:linear-gradient(135deg,#FFFFFF 0%,#E0F2FE 100%);
+      background:var(--color-card);
     }
 
     .project-card-inner {
@@ -264,7 +264,8 @@
       border-radius:20px;border:1.5px solid rgba(14,165,233,0.15);
       max-width:760px;margin-left:auto;margin-right:auto;
     }
-    .proj-cta p{color:var(--color-text-heading);font-size:20px;margin-bottom:18px;font-weight:700;font-family:Inconsolata,monospace}
+    .proj-cta p{color:#F8FAFC;font-size:20px;margin-bottom:18px;font-weight:700;font-family:Inconsolata,monospace}
+    .proj-cta .btn{color:#E2E8F0;border-color:rgba(56,189,248,0.6)}
 
     @media (max-width:850px){
       .project-card-inner{grid-template-columns:1fr;gap:24px}

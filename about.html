@@ -69,11 +69,11 @@
 
     .about-title{
       font-size:clamp(32px,5vw,52px);
-      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#F8FAFC 100%);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
       letter-spacing:-0.5px;margin-bottom:10px;
     }
-    .about-sub{color:var(--color-text-body);font-size:16px;margin-bottom:0}
+    .about-sub{color:#CBD5E1;font-size:16px;margin-bottom:0}
 
     .journey{
       margin-top:70px;position:relative;
@@ -93,7 +93,7 @@
 
     .milestone{
       position:relative;z-index:1;
-      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      background:var(--color-card);
       border:1.5px solid rgba(14,165,233,0.18);
       border-radius:16px;padding:28px 22px 22px;
       text-align:center;cursor:pointer;
@@ -109,7 +109,7 @@
     .milestone.active{
       border-color:var(--color-accent);
       box-shadow:0 24px 55px rgba(14,165,233,0.22);
-      background:linear-gradient(135deg,#fff 0%,#E0F2FE 100%);
+      background:var(--color-card);
     }
 
     .milestone-dot{
@@ -144,19 +144,19 @@
       max-height:500px;padding:24px 28px;opacity:1;
     }
     .chapter-panel p{
-      color:var(--color-text-body);line-height:1.9;margin:0;
+      color:#CBD5E1;line-height:1.9;margin:0;
     }
-    .chapter-panel strong{color:var(--color-text-heading)}
+    .chapter-panel strong{color:#F8FAFC}
 
     .skills-section{margin-top:80px}
     .skills-header{text-align:center;margin-bottom:36px}
     .skills-header h3{
       font-size:clamp(24px,3.5vw,34px);
-      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#0F172A 100%);
+      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#F8FAFC 100%);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
       margin-bottom:8px;
     }
-    .skills-header p{color:var(--color-text-body);font-size:14px;margin:0}
+    .skills-header p{color:#CBD5E1;font-size:14px;margin:0}
 
     .skill-grid{
       display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
@@ -185,7 +185,7 @@
       box-shadow:0 12px 32px rgba(15,23,42,0.08);
     }
     .skill-front{
-      background:linear-gradient(135deg,#fff 0%,#F0F9FF 100%);
+      background:var(--color-card);
       align-items:flex-start;
     }
     .skill-icon{
@@ -225,10 +225,11 @@
       border:1.5px solid rgba(14,165,233,0.15);
     }
     .about-cta h3{
-      font-family:Inconsolata,monospace;color:var(--color-text-heading);
+      font-family:Inconsolata,monospace;color:#F8FAFC;
       font-size:26px;margin-bottom:8px;
     }
-    .about-cta p{color:var(--color-text-body);margin-bottom:20px}
+    .about-cta p{color:#CBD5E1;margin-bottom:20px}
+    .about-cta .btn{color:#E2E8F0;border-color:rgba(56,189,248,0.6)}
 
     @media (max-width:900px){
       .journey-track{grid-template-columns:1fr;gap:40px}
