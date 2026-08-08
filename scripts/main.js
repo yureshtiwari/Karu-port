@@ -72,28 +72,4 @@
     }
   });
 
-  // Back to top button
-  var backToTop=document.getElementById('backToTop');
-  if(backToTop){
-    var scrollThreshold=400;
-    var ticking=false;
-    function updateBackToTop(){
-      if(window.scrollY>scrollThreshold){
-        backToTop.classList.add('is-visible');
-      }else{
-        backToTop.classList.remove('is-visible');
-      }
-      ticking=false;
-    }
-    window.addEventListener('scroll',function(){
-      if(!ticking){
-        requestAnimationFrame(updateBackToTop);
-        ticking=true;
-      }
-    },{passive:true});
-    backToTop.addEventListener('click',function(){
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  }
-
 })();

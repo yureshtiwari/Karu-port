@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="View the portfolio projects of Karina Tandan — including e-commerce platforms, healthcare apps, and modern web applications." />
   <title>Projects — Karina Tandan</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230EA5E9'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Inconsolata,monospace' font-weight='700'>K</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111111'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='Inconsolata,monospace' font-weight='700'>K</text></svg>">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
 
   <style>
@@ -22,17 +26,17 @@
     }
     .float-shape{
       position:absolute;border-radius:50%;
-      background:linear-gradient(135deg,rgba(14,165,233,0.18),rgba(225,29,72,0.12));
+      background:linear-gradient(135deg,color-mix(in srgb,var(--ink) 18%,transparent),color-mix(in srgb,var(--accent) 12%,transparent));
       filter:blur(2px);
       animation:floatY 8s ease-in-out infinite;
       will-change:transform;
     }
     .float-shape.s1{width:115px;height:115px;top:10%;left:8%;animation-delay:0s}
     .float-shape.s2{width:70px;height:70px;top:20%;right:10%;animation-delay:1.5s;
-      background:linear-gradient(135deg,rgba(245,158,11,0.22),rgba(6,182,212,0.18))}
+      background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 22%,transparent),color-mix(in srgb,var(--accent) 18%,transparent))}
     .float-shape.s3{width:90px;height:90px;bottom:10%;left:15%;animation-delay:3s}
     .float-shape.s4{width:55px;height:55px;bottom:20%;right:15%;animation-delay:2s;
-      background:linear-gradient(135deg,rgba(225,29,72,0.18),rgba(14,165,233,0.18))}
+      background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 18%,transparent),color-mix(in srgb,var(--ink) 18%,transparent))}
 
     @keyframes floatY{
       0%,100%{transform:translateY(0) rotate(0deg)}
@@ -42,21 +46,21 @@
     .hero-inner{position:relative;z-index:1;max-width:none;margin:0}
 
     .proj-title{
-      font-size:clamp(32px,5vw,52px);
-      background:linear-gradient(135deg,#0EA5E9 0%,#06B6D4 50%,#F8FAFC 100%);
+      font-size:clamp(48px,9vw,90px);
+      background:linear-gradient(135deg,var(--ink) 0%,var(--accent) 50%,var(--ink) 100%);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-      letter-spacing:-0.5px;margin-bottom:12px;
+      letter-spacing:-0.5px;margin-bottom:12px;text-transform:uppercase;font-weight:800;
     }
-    .proj-sub{color:#CBD5E1;font-size:16px;margin-bottom:0}
+    .proj-sub{color:var(--ink-soft);font-size:18px;margin-bottom:0}
 
     .filter-section{
       position:relative;z-index:1;max-width:680px;margin:10px auto 40px;text-align:center;
     }
-    .filter-label{font-size:12px;color:#CBD5E1;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;opacity:0.8}
+    .filter-label{font-size:12px;color:var(--ink-soft);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;opacity:0.8}
     .filter-grid{
       display:inline-flex;flex-wrap:wrap;justify-content:center;gap:8px;
-      background:var(--color-card);padding:6px;border-radius:30px;
-      border:1px solid rgba(14,165,233,0.2);box-shadow:0 4px 15px rgba(15,23,42,0.04);
+      background:var(--color-card);padding:6px;border-radius:8px;
+      border:1px solid var(--line);box-shadow:0 4px 15px rgba(17,17,17,0.04);
     }
     .filter-pill{
       display:inline-flex;align-items:center;gap:8px;
@@ -67,216 +71,181 @@
     .filter-pill svg{opacity:0.7;transition:opacity .2s ease}
     .filter-count{
       font-size:11px;padding:2px 6px;border-radius:10px;
-      background:rgba(14,165,233,0.1);color:var(--color-accent-dark);
+      background:color-mix(in srgb,var(--ink) 10%,transparent);color:var(--color-accent-dark);
       transition:all .28s ease;
     }
     .filter-pill:hover{
-      color:var(--color-text-heading);background:rgba(255,255,255,0.8);
+      color:var(--color-text-heading);background:color-mix(in srgb,var(--accent) 18%,transparent);
     }
     .filter-pill:hover svg, .filter-pill.active svg{opacity:1}
     .filter-pill.active{
-      background:linear-gradient(135deg,#0EA5E9,#06B6D4);
-      color:#fff;box-shadow:0 6px 16px rgba(14,165,233,0.25);
+      background:var(--color-accent);
+      color:var(--bg);box-shadow:0 6px 16px rgba(17,17,17,0.25);
     }
     .filter-pill.active .filter-count{
-      background:rgba(255,255,255,0.25);color:#fff;
+      background:color-mix(in srgb,var(--bg) 25%,transparent);color:var(--bg);
     }
 
     .projects-container{
-      display:flex;
-      flex-direction:column;
-      gap:36px;
-      max-width:1050px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      max-width:1200px;
       margin:0 auto;
       perspective:1200px;
+      align-items:stretch;
     }
 
     .project-node{
       width:100%;
+      height:100%;
+      display:flex;
       transition:all .5s cubic-bezier(.2,.9,.2,1);
     }
     .project-node:nth-child(1){transition-delay:0.05s}
     .project-node:nth-child(2){transition-delay:0.1s}
     .project-node:nth-child(3){transition-delay:0.15s}
     .project-node.hidden{
-      opacity:0;
-      transform:scale(0.96);
-      pointer-events:none;
-      max-height:0;
-      overflow:hidden;
-      margin:0;
-      padding:0;
+      display:none;
     }
 
     .project-card-3d{
       background:var(--color-card);
-      border:1.5px solid rgba(14,165,233,0.18);
-      border-radius:24px;
-      padding:36px 40px;
-      box-shadow:0 14px 40px rgba(15,23,42,0.06);
+      border:1.5px solid var(--line);
+      border-radius:10px;
+      padding:24px;
+      box-shadow:0 14px 40px rgba(17,17,17,0.06);
       transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .4s ease,border-color .4s ease;
       transform-style:preserve-3d;
       position:relative;
       z-index:1;
       width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
     }
     .project-card-3d:hover{
       transform:translateY(-4px);
-      box-shadow:0 28px 65px rgba(14,165,233,0.16);
-      border-color:rgba(14,165,233,0.35);
+      box-shadow:0 28px 65px rgba(17,17,17,0.16);
+      border-color:color-mix(in srgb,var(--ink) 35%,transparent);
       background:var(--color-card);
     }
 
-    .project-card-inner {
-      display:grid;
-      grid-template-columns:1.15fr 0.85fr;
-      gap:36px;
-      align-items:start;
-    }
+    /* ============ end layout variety ============ */
 
     .proj-badge-wrap{
       display:flex;align-items:center;justify-content:space-between;
       flex-wrap:wrap;gap:12px;margin-bottom:14px;
     }
-    .proj-badge{
-      display:inline-flex;align-items:center;gap:8px;
-      font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;
-    }
-    .badge-dot{
-      width:8px;height:8px;border-radius:50%;
-      position:relative;
-    }
-    .badge-dot::after{
-      content:"";position:absolute;inset:-3px;border-radius:50%;
-      opacity:0.4;animation:pulse 2s infinite;
-    }
-    @keyframes pulse{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.8);opacity:0}}
-
     .proj-cat-tag{
-      font-size:12px;font-weight:600;color:var(--color-text-body);
-      background:rgba(14,165,233,0.08);padding:4px 12px;border-radius:14px;
-      border:1px solid rgba(14,165,233,0.15);
+      font-size:11px;font-weight:600;color:var(--color-text-body);
+      background:color-mix(in srgb,var(--ink) 8%,transparent);padding:4px 12px;border-radius:6px;
+      border:1px solid var(--line);
     }
-
-    .theme-blue .proj-badge{color:var(--color-accent-dark)}
-    .theme-blue .badge-dot, .theme-blue .badge-dot::after{background:var(--color-accent)}
-    
-    .theme-emerald .proj-badge{color:var(--color-cat-dev)}
-    .theme-emerald .badge-dot, .theme-emerald .badge-dot::after{background:var(--color-cat-dev)}
-    
-    .theme-pink .proj-badge{color:var(--color-accent-warm)}
-    .theme-pink .badge-dot, .theme-pink .badge-dot::after{background:var(--color-accent-warm)}
 
     .proj-name{
-      font-family:Inconsolata,monospace;font-size:32px;color:var(--color-text-heading);
-      margin:0 0 6px;letter-spacing:-0.5px;
+      font-family:var(--font-heading);font-size:26px;color:var(--color-text-heading);
+      margin:0 0 4px;letter-spacing:-0.5px;
     }
     .proj-type{
-      color:var(--color-secondary);font-size:15px;font-weight:600;margin-bottom:16px;
+      color:var(--color-secondary);font-size:14px;font-weight:600;margin-bottom:10px;
     }
     .proj-desc{
-      color:var(--color-text-body);font-size:15px;line-height:1.75;margin-bottom:20px;
-    }
-
-    .proj-main-column {
-      display:flex;
-      flex-direction:column;
-    }
-
-    .proj-side-column {
-      display:flex;
-      flex-direction:column;
-      height:100%;
-      justify-content:center;
+      color:var(--color-text-body);font-size:14px;line-height:1.65;margin-bottom:16px;
     }
 
     .proj-impact-box{
-      padding:24px;border-radius:16px;margin:0;
-      border-top:1px solid rgba(14,165,233,0.1);
-      border-right:1px solid rgba(14,165,233,0.1);
-      border-bottom:1px solid rgba(14,165,233,0.1);
+      padding:16px;border-radius:6px;margin:0 0 16px;
+      border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);
+      border-right:1px solid color-mix(in srgb,var(--ink) 10%,transparent);
+      border-bottom:1px solid color-mix(in srgb,var(--ink) 10%,transparent);
       transition:all .3s ease;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
     }
     .theme-blue .proj-impact-box{
-      background:linear-gradient(135deg,rgba(14,165,233,0.06),rgba(6,182,212,0.03));
+      background:linear-gradient(135deg,color-mix(in srgb,var(--ink) 6%,transparent),color-mix(in srgb,var(--accent) 3%,transparent));
       border-left:4px solid var(--color-accent);
     }
     .theme-emerald .proj-impact-box{
-      background:linear-gradient(135deg,rgba(4,120,87,0.06),rgba(6,182,212,0.03));
+      background:linear-gradient(135deg,color-mix(in srgb,var(--color-cat-dev) 6%,transparent),color-mix(in srgb,var(--accent) 3%,transparent));
       border-left:4px solid var(--color-cat-dev);
     }
     .theme-pink .proj-impact-box{
-      background:linear-gradient(135deg,rgba(225,29,72,0.06),rgba(225,29,72,0.03));
+      background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 6%,transparent),color-mix(in srgb,var(--accent) 3%,transparent));
       border-left:4px solid var(--color-accent-warm);
     }
 
     .project-card-3d:hover .proj-impact-box{
-      background:linear-gradient(135deg,rgba(14,165,233,0.09),rgba(225,29,72,0.05));
+      background:linear-gradient(135deg,color-mix(in srgb,var(--ink) 9%,transparent),color-mix(in srgb,var(--accent) 5%,transparent));
     }
 
     .impact-title{
-      font-weight:700;color:var(--color-text-heading);margin:0 0 14px;
-      font-size:13px;text-transform:uppercase;letter-spacing:0.6px;
+      font-weight:700;color:var(--color-text-heading);margin:0 0 10px;
+      font-size:12px;text-transform:uppercase;letter-spacing:0.6px;
       display:flex;align-items:center;gap:8px;
     }
     .impact-list{
-      margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;
+      margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;
     }
     .impact-list li{
-      position:relative;padding-left:24px;color:var(--color-text-body);
-      font-size:14px;line-height:1.6;
+      position:relative;padding-left:20px;color:var(--color-text-body);
+      font-size:13px;line-height:1.55;
     }
     .impact-list li::before{
-      content:"";position:absolute;left:0;top:4px;width:16px;height:16px;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230EA5E9' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      content:"";position:absolute;left:0;top:4px;width:14px;height:14px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B685F' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
       background-size:contain;background-repeat:no-repeat;
     }
     .theme-emerald .impact-list li::before{
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23047857' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A7A5E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
     }
     .theme-pink .impact-list li::before{
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E11D48' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9B79C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
     }
 
     .stack-wrap{
-      display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:auto;
-      padding-top:16px;border-top:1px solid rgba(14,165,233,0.12);
+      display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:0 0 16px;
+      padding-top:14px;      border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent);
     }
-    .stack-label{font-size:13px;font-weight:700;color:var(--color-text-heading);margin-right:4px}
     .stack-tag{
-      font-size:12px;font-weight:600;color:var(--color-text-body);
-      background:rgba(255,255,255,0.8);padding:5px 12px;border-radius:14px;
-      border:1px solid rgba(14,165,233,0.2);transition:all .2s ease;
+      font-size:11px;font-weight:600;color:var(--color-text-body);
+      background:color-mix(in srgb,var(--accent) 18%,transparent);padding:4px 10px;border-radius:6px;
+      border:1px solid var(--line);transition:all .2s ease;
     }
     .project-card-3d:hover .stack-tag{
-      background:#fff;color:var(--color-accent-dark);
-      border-color:var(--color-accent);transform:translateY(-2px);
-      box-shadow:0 4px 10px rgba(14,165,233,0.1);
+      background:var(--color-card);color:var(--ink);
+      border-color:var(--accent);transform:translateY(-2px);
+      box-shadow:0 4px 10px rgba(17,17,17,0.1);
+    }
+
+    .proj-view-btn{
+      margin-top:auto;
+      width:100%;
+      display:block;
+      text-align:center;
+      padding:10px 16px;
+      font-size:13px;
     }
 
     .proj-cta{
       text-align:center;margin-top:70px;margin-bottom:40px;padding:40px 20px;
-      background:linear-gradient(135deg,rgba(14,165,233,0.08),rgba(225,29,72,0.06));
-      border-radius:20px;border:1.5px solid rgba(14,165,233,0.15);
+      background:linear-gradient(135deg,color-mix(in srgb,var(--ink) 8%,transparent),color-mix(in srgb,var(--accent) 6%,transparent));
+      border-radius:10px;border:1.5px solid var(--line);
       max-width:760px;margin-left:auto;margin-right:auto;
     }
-    .proj-cta p{color:#F8FAFC;font-size:20px;margin-bottom:18px;font-weight:700;font-family:Inconsolata,monospace}
-    .proj-cta .btn{color:#E2E8F0;border-color:rgba(56,189,248,0.6)}
+    .proj-cta p{color:var(--ink);font-size:20px;margin-bottom:18px;font-weight:700;font-family:var(--font-heading)}
+    .proj-cta .btn{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 60%,transparent)}
+    .proj-cta .btn:hover{color:var(--bg);border-color:var(--color-accent)}
 
-    @media (max-width:850px){
-      .project-card-inner{grid-template-columns:1fr;gap:24px}
-      .project-card-3d{padding:28px 24px}
-      .proj-impact-box{margin-top:8px}
+    @media (max-width:900px){
+      .projects-container{grid-template-columns:repeat(2,1fr)}
     }
 
-    @media (max-width:480px){
-      .project-card-3d{padding:24px 18px}
+    @media (max-width:600px){
+      .projects-container{grid-template-columns:1fr}
+      .project-card-3d{padding:22px 18px}
       .proj-name{font-size:24px}
-      .filter-grid{border-radius:20px}
+      .filter-grid{border-radius:8px}
     }
 
     @media (prefers-reduced-motion:reduce){
@@ -309,6 +278,9 @@
   <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
   <span class="nav-label">Contact</span>
 </a>
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
       </div>
     </nav>
   </header>
@@ -356,131 +328,101 @@
       </div>
     </section>
 
-    <section class="projects-container" aria-label="Featured Projects Showcase">
+    <section class="projects-container" aria-label="Projects Showcase">
 
       <article class="project-node" data-category="e-commerce" data-animate="entry-scale">
         <div class="project-card-3d theme-blue">
-          <div class="project-card-inner">
-            <div class="proj-main-column">
-              <div class="proj-badge-wrap">
-                <span class="proj-badge">
-                  <span class="badge-dot"></span>
-                  Featured Project
-                </span>
-                <span class="proj-cat-tag">E-Commerce</span>
-              </div>
-
-              <h3 class="proj-name">Dipin Donuts</h3>
-              <p class="proj-type">E-commerce Storefront</p>
-              <p class="proj-desc">Designed and implemented a fully functional e-commerce storefront for Dipin Donuts, a specialty bakery. The project focused on creating conversion-friendly user flows, ensuring accessibility compliance, and integrating a lightweight CMS that allows the client to independently manage product listings, promotions, and inventory.</p>
-
-              <div class="stack-wrap" aria-label="Technologies used">
-                <span class="stack-label">Technologies:</span>
-                <span class="stack-tag">React</span>
-                <span class="stack-tag">Node.js</span>
-                <span class="stack-tag">MongoDB</span>
-                <span class="stack-tag">Stripe API</span>
-              </div>
-            </div>
-
-            <div class="proj-side-column">
-              <div class="proj-impact-box">
-                <p class="impact-title">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  Key Achievements
-                </p>
-                <ul class="impact-list">
-                  <li>Increased conversion rate by 34% through optimized checkout flow</li>
-                  <li>Achieved WCAG 2.1 AA accessibility standards</li>
-                  <li>Reduced page load time by 45% with optimized assets</li>
-                </ul>
-              </div>
-            </div>
+          <div class="proj-badge-wrap">
+            <span class="proj-cat-tag">E-Commerce</span>
           </div>
+
+          <h3 class="proj-name">Dipin Donuts</h3>
+          <p class="proj-type">E-commerce Storefront</p>
+          <p class="proj-desc">Conversion-optimized bakery storefront with a self-serve CMS — accessible, fast, and built to turn visitors into loyal customers.</p>
+
+          <div class="stack-wrap" aria-label="Technologies used">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">MongoDB</span>
+            <span class="stack-tag">Stripe API</span>
+          </div>
+
+          <div class="proj-impact-box">
+            <p class="impact-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Key Achievements
+            </p>
+            <ul class="impact-list">
+              <li>34% increase in conversion rate via optimized checkout flow</li>
+              <li>WCAG 2.1 AA accessibility standards achieved</li>
+            </ul>
+          </div>
+
+          <a class="btn proj-view-btn" href="#" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
       </article>
 
       <article class="project-node" data-category="healthcare" data-animate="entry-scale">
         <div class="project-card-3d theme-emerald">
-          <div class="project-card-inner">
-            <div class="proj-main-column">
-              <div class="proj-badge-wrap">
-                <span class="proj-badge">
-                  <span class="badge-dot"></span>
-                  Healthcare Tech
-                </span>
-                <span class="proj-cat-tag">Healthcare</span>
-              </div>
-
-              <h3 class="proj-name">Mediclick</h3>
-              <p class="proj-type">Appointment Booking Platform</p>
-              <p class="proj-desc">Built a streamlined healthcare appointment scheduling platform that simplifies the booking process for patients and reduces administrative overhead for medical practices. The intuitive interface guides users through finding specialists and booking appointments with minimal friction.</p>
-
-              <div class="stack-wrap" aria-label="Technologies used">
-                <span class="stack-label">Technologies:</span>
-                <span class="stack-tag">React</span>
-                <span class="stack-tag">TypeScript</span>
-                <span class="stack-tag">Firebase</span>
-                <span class="stack-tag">Twilio</span>
-              </div>
-            </div>
-
-            <div class="proj-side-column">
-              <div class="proj-impact-box">
-                <p class="impact-title">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  Impact Metrics
-                </p>
-                <ul class="impact-list">
-                  <li>Reduced booking time from 15 min to 3 min per appointment</li>
-                  <li>98% uptime with automated reminder system</li>
-                  <li>Served 50,000+ patients in first year</li>
-                </ul>
-              </div>
-            </div>
+          <div class="proj-badge-wrap">
+            <span class="proj-cat-tag">Healthcare</span>
           </div>
+
+          <h3 class="proj-name">Mediclick</h3>
+          <p class="proj-type">Appointment Booking Platform</p>
+          <p class="proj-desc">Streamlined healthcare scheduling that reduces booking friction for patients and administrative overhead for medical practices.</p>
+
+          <div class="stack-wrap" aria-label="Technologies used">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">Firebase</span>
+            <span class="stack-tag">Twilio</span>
+          </div>
+
+          <div class="proj-impact-box">
+            <p class="impact-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Impact Metrics
+            </p>
+            <ul class="impact-list">
+              <li>Booking time cut from 15 min to 3 min per appointment</li>
+              <li>50,000+ patients served in the first year</li>
+            </ul>
+          </div>
+
+          <a class="btn proj-view-btn" href="#" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
       </article>
 
       <article class="project-node" data-category="e-commerce" data-animate="entry-scale">
         <div class="project-card-3d theme-pink">
-          <div class="project-card-inner">
-            <div class="proj-main-column">
-              <div class="proj-badge-wrap">
-                <span class="proj-badge">
-                  <span class="badge-dot"></span>
-                  Fashion Retail
-                </span>
-                <span class="proj-cat-tag">E-Commerce</span>
-              </div>
-
-              <h3 class="proj-name">Ocean Fashion</h3>
-              <p class="proj-type">Modern E-commerce Platform</p>
-              <p class="proj-desc">Developed a contemporary fashion e-commerce platform featuring rich product experiences, advanced filtering, and a seamless checkout process. The platform emphasizes visual storytelling with high-quality product photography and curated collections.</p>
-
-              <div class="stack-wrap" aria-label="Technologies used">
-                <span class="stack-label">Technologies:</span>
-                <span class="stack-tag">Next.js</span>
-                <span class="stack-tag">GraphQL</span>
-                <span class="stack-tag">Shopify API</span>
-                <span class="stack-tag">TailwindCSS</span>
-              </div>
-            </div>
-
-            <div class="proj-side-column">
-              <div class="proj-impact-box">
-                <p class="impact-title">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  Performance
-                </p>
-                <ul class="impact-list">
-                  <li>Mobile-first responsive design with 99.2% cross-browser compatibility</li>
-                  <li>Average session duration increased by 280%</li>
-                  <li>Smart recommendation engine increased AOV by 22%</li>
-                </ul>
-              </div>
-            </div>
+          <div class="proj-badge-wrap">
+            <span class="proj-cat-tag">E-Commerce</span>
           </div>
+
+          <h3 class="proj-name">Ocean Fashion</h3>
+          <p class="proj-type">Modern E-commerce Platform</p>
+          <p class="proj-desc">Contemporary fashion storefront focused on visual storytelling, rich filtering, and a seamless checkout experience.</p>
+
+          <div class="stack-wrap" aria-label="Technologies used">
+            <span class="stack-tag">Next.js</span>
+            <span class="stack-tag">GraphQL</span>
+            <span class="stack-tag">Shopify API</span>
+            <span class="stack-tag">TailwindCSS</span>
+          </div>
+
+          <div class="proj-impact-box">
+            <p class="impact-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Performance
+            </p>
+            <ul class="impact-list">
+              <li>Average session duration increased by 280%</li>
+              <li>Recommendation engine lifted AOV by 22%</li>
+            </ul>
+          </div>
+
+          <a class="btn proj-view-btn" href="#" target="_blank" rel="noopener noreferrer">View Project</a>
         </div>
       </article>
 
@@ -494,9 +436,6 @@
   </main>
 
 
-  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-  </button>
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-grid">
@@ -608,5 +547,6 @@
       });
     })();
   </script>
+  <script src="scripts/theme.js"></script>
 </body>
 </html>

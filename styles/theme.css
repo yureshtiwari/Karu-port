@@ -1,0 +1,92 @@
+/* ================================================================
+   THEME — Light / Dark variables + shared toggle styles
+   Loaded first in <head> (after the no-flash init script).
+   ================================================================ */
+
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #ECE7DC;
+  --ink: #1B1A17;
+  --ink-soft: #6B685F;
+  --line: #DEDACD;
+  --accent: #A9865B;
+  --accent-soft: #E7DCC6;
+  --card: #FFFFFE;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #1A1815;
+  --bg-soft: #242019;
+  --ink: #F4F1EA;
+  --ink-soft: #A8A296;
+  --line: #3A362E;
+  --accent: #C9A876;
+  --accent-soft: #3A3226;
+  --card: #211E19;
+  color-scheme: dark;
+}
+
+/* Legacy tokens used across main.css / hero.css / inline styles,
+   remapped so dark mode applies everywhere. */
+:root,
+[data-theme="dark"] {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-text: var(--ink);
+  --color-text-heading: var(--ink);
+  --color-text-body: var(--ink);
+  --color-accent: var(--ink);
+  --color-accent-dark: var(--ink);
+  --color-accent-2: var(--accent);
+  --color-accent-light: var(--accent-soft);
+  --color-accent-warm: var(--accent);
+  --color-secondary: var(--accent);
+  --color-border: var(--line);
+  --color-cat-dev: var(--accent);
+  --color-cat-lead: var(--accent);
+  --color-cat-support: var(--accent);
+  --color-success: var(--accent);
+  --color-error: #B3542E;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ================================================================
+   Theme toggle
+   ================================================================ */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  color: var(--ink);
+  border-radius: 50%;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+.theme-toggle:hover {
+  transform: rotate(-12deg) scale(1.12);
+}
+
+/* ================================================================
+   Dark-mode overrides for a few fixed-color bits
+   ================================================================ */
+[data-theme="dark"] .form-message.success {
+  color: #8FA96A;
+}
+[data-theme="dark"] .form-message.error {
+  color: #E08A76;
+}
